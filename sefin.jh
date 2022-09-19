@@ -1,0 +1,235 @@
+
+entity Agent {
+   name String
+   maxBlocksPerTime Integer
+   blockSize Integer
+   intervalBetweenBlocks Integer
+   intervalBetweenTasks Integer
+   maxAttempts Integer
+   createdAt LocalDate
+   updatedAt LocalDate
+}
+
+entity ScheduleExecution {
+	createdAt LocalDate
+    updatedAt LocalDate
+}
+
+entity Schedule {
+    rule String
+    firstInterval Integer
+    secondInterval Integer
+    thirdInterval Integer
+    createdAt LocalDate
+    updatedAt LocalDate
+}
+
+entity Company {
+	name String
+    cnpj String
+    address String
+    createdAt LocalDate
+ 	updatedAt LocalDate
+}
+
+entity Source {
+	url String
+    enabled Boolean
+    failed Boolean
+    createdAt LocalDate
+ 	updatedAt LocalDate
+}
+
+entity TaskStatus {
+    name String
+    createdAt LocalDate
+ 	updatedAt LocalDate
+}
+
+entity Task {
+	source String
+    attemptCount Integer
+    targetDateInterval Integer
+    createdAt LocalDate
+ 	updatedAt LocalDate
+}
+
+entity RawData {
+    content String
+    processed Boolean
+    createdAt LocalDate
+ 	updatedAt LocalDate
+}
+
+entity Facility {
+	name String
+	createdAt ZonedDateTime
+ 	updatedAt ZonedDateTime
+}
+
+entity HotelResultFacility {
+	createdAt ZonedDateTime
+ 	updatedAt ZonedDateTime
+}
+
+entity HotelResult {
+	name String
+    address String
+    starsCount Integer
+    rating Integer
+	createdAt ZonedDateTime
+ 	updatedAt ZonedDateTime
+}
+
+entity Room {
+	numberOfPeople Integer
+    price BigDecimal
+    periodType Integer
+    checkInDate LocalDate
+    checkOutDate LocalDate
+    available Boolean
+	createdAt ZonedDateTime
+ 	updatedAt ZonedDateTime
+}
+
+relationship OneToMany {
+	TaskStatus to Task{status(id)}
+    Agent to Schedule{agent(id)}
+    ScheduleExecution to Task{ScheduleExecution(id)}
+}
+
+relationship ManyToOne {
+  ScheduleExecution{schedule(id)} to Schedule
+  Source{agent(id)} to Agent
+  Source{company(id)} to Company
+  RawData{task(id)} to Task
+  HotelResult{task(id)} to Task
+  HotelResult{agent(id)} to Agent
+  HotelResult{company(id)} to Company
+  Room{hotelResult(id)} to HotelResult
+  HotelResultFacility{hotelResult(id)} to HotelResult
+  HotelResultFacility{facility(id)} to Facility
+}
+//----Mapeamento de notas
+entity NFSe {
+  idNfse String	//	Identificador único da NFSE
+  competencia String	//	Mês e ano da prestação de serviço. (AAAAMM)
+  dataEmissao String	//	Data/Hora da emissão da NFS-e (AAAA-MM-DD HH24:mm:ss)
+  ip String	//	Endereço IP do emitente da NFSE
+  optanteSimplesNacional String	//	Optante Simples Nacional: 0 - Não, 1-Sim
+  outrasInformacoes String	//	Uso da administração fazendária
+  idNfseSubstituida String	//	Número da NFS-e substituída (Auto Relacionamento)
+  usuario String	//	Identificador do usuário que emitiu a NFS-e
+  statusNfse String	//	Status da NFS-e:  1 - Normal, 2 - Cancelada
+  naturezaOperacao Integer	//
+  rps String	//
+  inscricaoPrestador String	//	Inscrição municipal do prestador de serviço da NFS-e
+  tipoDocDigitado String	//
+  statusAceite Integer	//	1 - Não Informada; 2 - Aceita; 3 - Recusada;
+  exclusaoLogica String	//	Data/Hora da exclusão lógica da NFS-e (AAAA-MM-DD HH24:mm:ss)
+  ajustada String	//	Identificador que a NFS-e foi ajustada: 0 - Não; 1 - Sim
+  observacaoAjuste String	//	Observação do ajuste da NFS-e
+  aliquotaServico String	//	Alíquota do serviço prestado
+  art String	//	Número da ART (Construção Civil)
+  baseCalculo String	//	Base de cálculo do ISS
+  codigoObra String	//	Número da matricula CEI da obra ou da empresa (Construção Civil)
+  valorServico String	//	Valor dos serviços em R$
+  valorPis String	//	Valor da retenção do PIS em R$ Informação declaratória
+  valorLiquidoNfse String	//	Valor Líquido
+  valorIssRetido String	//	Valor do ISS a ser retido
+  valorIssOutroMunicipio String	//	Valor do ISS não Devido em Fortaleza
+  valorIss String	//	Valor do ISS devido em R$
+  valorIr String	//	Valor da retenção do IR em R$
+  valorInss String	//	Valor da retenção do INSS em R$ Informação declaratória
+  valorDescontoCondicionado String	//	Valor do desconto Condicionado
+  valorDescontoIncondicionado String	//	Valor do desconto incondicionado
+  valorDeducoes String	//	Valor das deduções para Redução da Base de Cálculo em R$
+  valorCsll String	//	Valor da retenção do CSLL em R$ Informação declaratória
+  valorCredito String	//	Valor do crédito gerado
+  valorCofins String	//	Valor da retenção do COFINS em R$ Informação declaratória
+  outrasRetencoes String	//	Outras retenções na Fonte. Informação declaratória
+  issRetido String	//	Indica se o ISS será retido na fonte: 0 - Não,  1 - Sim
+  discriminacao String	//	Discriminação dos serviços
+  municipioPrestacaoServico String	//	Código do município onde o serviço foi prestado (tabela do IBGE)
+  paisPrestacaoServico String	//	Código do país onde o serviço foi prestado (tabela do SPED)
+  codRegimeEspecialTributacao Integer	//	enum
+  codigoTributacaoMunicipio String	//	Código da CNAE
+  itemListaServicoMunicipio String	//	Código da Lista de Serviço
+  cpfCnpjTomador String	//	CPF ou CNPJ do tomador do serviço
+  cpfCnpjPrestador String	//	CPF ou CNPJ do prestador do serviço
+  inscricaoMunicipalTomador String	//	Inscrição CPBS do tomador do serviço
+  indicadorCpfCnpjTomador Integer	//Enum TipoPessoa 1 juridica, 2 fisica, 3 nao informado
+  indicadorCpfCnpjPrestador Integer	//Enum TipoPessoa 1 juridica, 2 fisica, 3 nao informado
+  paisTomador String	//	Código do país do tomador de serviço (tabela do SPED)
+  paisPrestador String	//	Código do país do prestador de serviço (tabela do SPED)
+  tipoTomador Integer	//Enum TipoPessoa 1 juridica, 2 fisica, 3 nao informado
+  codCidadeTomadorIBGE String	//	Código do município do tomador do serviço (tabela do IBGE)
+  codCidadePrestadorIBGE String	//	Código do município do tomador do serviço (tabela do IBGE)
+  tipoPrestador Integer	//Enum TipoPessoa 1 juridica, 2 fisica, 3 nao informado
+  numeroEmpenho String	//
+  tipoTributacaoPrestExterno String	//Tipo de regime de tributação do prestador externo
+  cepPrestador String	//	Número do CEP do prestador de serviço
+  cepTomador String	//	Número do CEP do tomador de serviço
+  idTipoAnexoSimplesNacional String	//Identificação do tipo de anexo para cálculo de alíquota mínimado simples nacional"
+  idBloqueioNfse Integer	//2691 - Bloqueada; 2692 - Desbloqueada;
+  idPgdasd2018Atividade String	//	Identificador do tipo de atividade do Simples Nacional
+}
+
+entity CPBS {
+  inscricao String // Incricao CPBS
+  nome String
+  nomeFantasia String
+  numDocumento String
+  situacao CPBSSituacaoEnum
+  optanteSimplesNacional Boolean
+  codigoNaturezaJuridica String
+  descricaoNaturezaJuridica String
+  tipoLogradouro String
+  tituloLogradouro String
+  logradouro String
+  numero String
+  complemento String
+  nomeCidade String
+  nomeBairro String
+  numeroCep String
+}
+
+enum CPBSSituacaoEnum{
+ ATIVA, SUSPENSA, BAIXADA
+}
+
+entity AtividadeCPBS {
+  inscricao String // Incricao CPBS
+  idAtividadeCpbs String
+  cnae String
+  situacao CPBSSituacaoEnum
+  principal String
+  idSegmentoIss String
+  descricao String
+  idListaSerCpbs String
+  codigo String
+  descricao String
+}
+
+//Machine Learn
+entity Tag {
+	name String
+    description String
+}
+
+entity TagText {
+	numNFSe String
+    startPosition Integer
+    endPosition Integer
+}
+
+relationship ManyToOne {
+  TagText{numNFSe(idNfse)} to NFSe
+  TagText{tag(id)} to Tag
+  AtividadeCPBS{cpbs(inscricao)} to CPBS
+  NFSe{inscricaoCpbs(inscricao)} to CPBS
+}
+
+paginate all with pagination
+dto all with mapstruct
+service all with serviceClass
