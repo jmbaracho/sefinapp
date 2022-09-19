@@ -1,0 +1,70 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="hotelResult">
+      <h2 data-cy="hotelResultDetailsHeading"><span jhiTranslate="sefinaApp.hotelResult.detail.title">Hotel Result</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">Código</span></dt>
+        <dd>
+          <span>{{ hotelResult.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.hotelResult.name">Name</span></dt>
+        <dd>
+          <span>{{ hotelResult.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.hotelResult.address">Address</span></dt>
+        <dd>
+          <span>{{ hotelResult.address }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.hotelResult.starsCount">Stars Count</span></dt>
+        <dd>
+          <span>{{ hotelResult.starsCount }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.hotelResult.rating">Rating</span></dt>
+        <dd>
+          <span>{{ hotelResult.rating }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.hotelResult.createdAt">Created At</span></dt>
+        <dd>
+          <span>{{ hotelResult.createdAt | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.hotelResult.updatedAt">Updated At</span></dt>
+        <dd>
+          <span>{{ hotelResult.updatedAt | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.hotelResult.task">Task</span></dt>
+        <dd>
+          <div *ngIf="hotelResult.task">
+            <a [routerLink]="['/task', hotelResult.task.id, 'view']">{{ hotelResult.task.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.hotelResult.agent">Agent</span></dt>
+        <dd>
+          <div *ngIf="hotelResult.agent">
+            <a [routerLink]="['/agent', hotelResult.agent.id, 'view']">{{ hotelResult.agent.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.hotelResult.company">Company</span></dt>
+        <dd>
+          <div *ngIf="hotelResult.company">
+            <a [routerLink]="['/company', hotelResult.company.id, 'view']">{{ hotelResult.company.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Voltar</span>
+      </button>
+
+      <button type="button" [routerLink]="['/hotel-result', hotelResult.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

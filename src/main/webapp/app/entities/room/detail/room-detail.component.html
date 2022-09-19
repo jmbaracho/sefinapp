@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="room">
+      <h2 data-cy="roomDetailsHeading"><span jhiTranslate="sefinaApp.room.detail.title">Room</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">Código</span></dt>
+        <dd>
+          <span>{{ room.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.room.numberOfPeople">Number Of People</span></dt>
+        <dd>
+          <span>{{ room.numberOfPeople }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.room.price">Price</span></dt>
+        <dd>
+          <span>{{ room.price }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.room.periodType">Period Type</span></dt>
+        <dd>
+          <span>{{ room.periodType }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.room.checkInDate">Check In Date</span></dt>
+        <dd>
+          <span>{{ room.checkInDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.room.checkOutDate">Check Out Date</span></dt>
+        <dd>
+          <span>{{ room.checkOutDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.room.createdAt">Created At</span></dt>
+        <dd>
+          <span>{{ room.createdAt | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.room.updatedAt">Updated At</span></dt>
+        <dd>
+          <span>{{ room.updatedAt | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.room.hotelResult">Hotel Result</span></dt>
+        <dd>
+          <div *ngIf="room.hotelResult">
+            <a [routerLink]="['/hotel-result', room.hotelResult.id, 'view']">{{ room.hotelResult.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Voltar</span>
+      </button>
+
+      <button type="button" [routerLink]="['/room', room.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

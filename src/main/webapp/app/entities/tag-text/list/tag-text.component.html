@@ -1,0 +1,135 @@
+<div>
+  <h2 id="page-heading" data-cy="TagTextHeading">
+    <span jhiTranslate="sefinaApp.tagText.home.title">Tag Texts</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="sefinaApp.tagText.home.refreshListLabel">Atualizar lista</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-tag-text"
+        [routerLink]="['/tag-text/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="sefinaApp.tagText.home.createLabel"> Criar novo Tag Text </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="tagTexts?.length === 0">
+    <span jhiTranslate="sefinaApp.tagText.home.notFound">Nenhum Tag Text encontrado</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="tagTexts && tagTexts.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">Código</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="startPosition">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.tagText.startPosition">Start Position</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="endPosition">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.tagText.endPosition">End Position</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="nfse.idNfse">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.tagText.nfse">Nfse</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="tag.id">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.tagText.tag">Tag</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tagText of tagTexts; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/tag-text', tagText.id, 'view']">{{ tagText.id }}</a>
+          </td>
+          <td>{{ tagText.startPosition }}</td>
+          <td>{{ tagText.endPosition }}</td>
+          <td>
+            <div *ngIf="tagText.nfse">
+              <a [routerLink]="['/nfse', tagText.nfse.id, 'view']">{{ tagText.nfse.idNfse }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="tagText.tag">
+              <a [routerLink]="['/tag', tagText.tag.id, 'view']">{{ tagText.tag.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/tag-text', tagText.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Visualizar</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/tag-text', tagText.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editar</span>
+              </button>
+
+              <button type="submit" (click)="delete(tagText)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Excluir</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="tagTexts && tagTexts.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

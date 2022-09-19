@@ -7,6 +7,23 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "agent": "Agent",
+        "scheduleExecution": "Schedule Execution",
+        "schedule": "Schedule",
+        "company": "Company",
+        "source": "Source",
+        "taskStatus": "Task Status",
+        "task": "Task",
+        "rawData": "Raw Data",
+        "facility": "Facility",
+        "hotelResultFacility": "Hotel Result Facility",
+        "hotelResult": "Hotel Result",
+        "room": "Room",
+        "nfse": "Nfse",
+        "inscricaoCpbs": "Inscricao CPBS",
+        "atividadeCpbs": "Atividade CPBS",
+        "tag": "Tag",
+        "tagText": "Tag Text",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

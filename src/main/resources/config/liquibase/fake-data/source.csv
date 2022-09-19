@@ -1,0 +1,11 @@
+id;url;enabled;failed;created_at;updated_at
+1;http://breno.biz;true;false;2022-09-19;2022-09-19
+2;http://antonella.net;true;false;2022-09-19;2022-09-18
+3;https://aline.br;false;false;2022-09-18;2022-09-19
+4;https://alice.name;true;true;2022-09-19;2022-09-19
+5;https://ana luiza.net;true;false;2022-09-18;2022-09-18
+6;https://rafael.br;true;false;2022-09-19;2022-09-19
+7;http://tertuliano.org;false;true;2022-09-19;2022-09-19
+8;http://sílvia.br;false;true;2022-09-18;2022-09-19
+9;http://ana laura.net;true;true;2022-09-19;2022-09-19
+10;https://lívia.net;false;false;2022-09-19;2022-09-19

@@ -11,7 +11,35 @@
     <property name="datetimeType" value="datetime" dbms="postgresql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220919175853_added_entity_Agent.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220919175854_added_entity_ScheduleExecution.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220919175855_added_entity_Schedule.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220919175856_added_entity_Company.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220919175857_added_entity_Source.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220919175858_added_entity_TaskStatus.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220919175859_added_entity_Task.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220919175900_added_entity_RawData.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220919175901_added_entity_Facility.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220919175902_added_entity_HotelResultFacility.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220919175903_added_entity_HotelResult.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220919175904_added_entity_Room.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220919175905_added_entity_Nfse.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220919175906_added_entity_InscricaoCPBS.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220919175907_added_entity_AtividadeCPBS.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220919175908_added_entity_Tag.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220919175909_added_entity_TagText.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20220919175854_added_entity_constraints_ScheduleExecution.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220919175855_added_entity_constraints_Schedule.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220919175857_added_entity_constraints_Source.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220919175859_added_entity_constraints_Task.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220919175900_added_entity_constraints_RawData.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220919175902_added_entity_constraints_HotelResultFacility.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220919175903_added_entity_constraints_HotelResult.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220919175904_added_entity_constraints_Room.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220919175905_added_entity_constraints_Nfse.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220919175907_added_entity_constraints_AtividadeCPBS.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20220919175909_added_entity_constraints_TagText.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

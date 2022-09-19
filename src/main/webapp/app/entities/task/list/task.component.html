@@ -1,0 +1,146 @@
+<div>
+  <h2 id="page-heading" data-cy="TaskHeading">
+    <span jhiTranslate="sefinaApp.task.home.title">Tasks</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="sefinaApp.task.home.refreshListLabel">Atualizar lista</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-task"
+        [routerLink]="['/task/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="sefinaApp.task.home.createLabel"> Criar novo Task </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="tasks?.length === 0">
+    <span jhiTranslate="sefinaApp.task.home.notFound">Nenhum Task encontrado</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="tasks && tasks.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">Código</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="source">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.task.source">Source</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="attemptCount">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.task.attemptCount">Attempt Count</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="targetDateInterval">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.task.targetDateInterval">Target Date Interval</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="createdAt">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.task.createdAt">Created At</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="updatedAt">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.task.updatedAt">Updated At</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="status.id">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.task.status">Status</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="scheduleExecution.id">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.task.scheduleExecution">Schedule Execution</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/task', task.id, 'view']">{{ task.id }}</a>
+          </td>
+          <td>{{ task.source }}</td>
+          <td>{{ task.attemptCount }}</td>
+          <td>{{ task.targetDateInterval }}</td>
+          <td>{{ task.createdAt | formatMediumDate }}</td>
+          <td>{{ task.updatedAt | formatMediumDate }}</td>
+          <td>
+            <div *ngIf="task.status">
+              <a [routerLink]="['/task-status', task.status.id, 'view']">{{ task.status.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="task.scheduleExecution">
+              <a [routerLink]="['/schedule-execution', task.scheduleExecution.id, 'view']">{{ task.scheduleExecution.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/task', task.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Visualizar</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/task', task.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editar</span>
+              </button>
+
+              <button type="submit" (click)="delete(task)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Excluir</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="tasks && tasks.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

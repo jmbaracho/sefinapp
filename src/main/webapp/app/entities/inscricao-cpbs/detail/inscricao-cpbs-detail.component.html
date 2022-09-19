@@ -1,0 +1,92 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="inscricaoCPBS">
+      <h2 data-cy="inscricaoCPBSDetailsHeading"><span jhiTranslate="sefinaApp.inscricaoCPBS.detail.title">Inscricao CPBS</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">Código</span></dt>
+        <dd>
+          <span>{{ inscricaoCPBS.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.inscricaoCPBS.inscricao">Inscricao</span></dt>
+        <dd>
+          <span>{{ inscricaoCPBS.inscricao }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.inscricaoCPBS.nome">Nome</span></dt>
+        <dd>
+          <span>{{ inscricaoCPBS.nome }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.inscricaoCPBS.nomeFantasia">Nome Fantasia</span></dt>
+        <dd>
+          <span>{{ inscricaoCPBS.nomeFantasia }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.inscricaoCPBS.numDocumento">Num Documento</span></dt>
+        <dd>
+          <span>{{ inscricaoCPBS.numDocumento }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.inscricaoCPBS.situacao">Situacao</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'sefinaApp.CPBSSituacaoEnum.' + inscricaoCPBS.situacao }}">{{ inscricaoCPBS.situacao }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.inscricaoCPBS.optanteSimplesNacional">Optante Simples Nacional</span></dt>
+        <dd>
+          <span>{{ inscricaoCPBS.optanteSimplesNacional }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.inscricaoCPBS.codigoNaturezaJuridica">Codigo Natureza Juridica</span></dt>
+        <dd>
+          <span>{{ inscricaoCPBS.codigoNaturezaJuridica }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.inscricaoCPBS.descricaoNaturezaJuridica">Descricao Natureza Juridica</span></dt>
+        <dd>
+          <span>{{ inscricaoCPBS.descricaoNaturezaJuridica }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.inscricaoCPBS.tipoLogradouro">Tipo Logradouro</span></dt>
+        <dd>
+          <span>{{ inscricaoCPBS.tipoLogradouro }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.inscricaoCPBS.tituloLogradouro">Titulo Logradouro</span></dt>
+        <dd>
+          <span>{{ inscricaoCPBS.tituloLogradouro }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.inscricaoCPBS.logradouro">Logradouro</span></dt>
+        <dd>
+          <span>{{ inscricaoCPBS.logradouro }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.inscricaoCPBS.numero">Numero</span></dt>
+        <dd>
+          <span>{{ inscricaoCPBS.numero }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.inscricaoCPBS.complemento">Complemento</span></dt>
+        <dd>
+          <span>{{ inscricaoCPBS.complemento }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.inscricaoCPBS.nomeCidade">Nome Cidade</span></dt>
+        <dd>
+          <span>{{ inscricaoCPBS.nomeCidade }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.inscricaoCPBS.nomeBairro">Nome Bairro</span></dt>
+        <dd>
+          <span>{{ inscricaoCPBS.nomeBairro }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.inscricaoCPBS.numeroCep">Numero Cep</span></dt>
+        <dd>
+          <span>{{ inscricaoCPBS.numeroCep }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Voltar</span>
+      </button>
+
+      <button type="button" [routerLink]="['/inscricao-cpbs', inscricaoCPBS.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

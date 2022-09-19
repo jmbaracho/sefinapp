@@ -1,0 +1,159 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-atividade-cpbs-heading"
+        data-cy="AtividadeCPBSCreateUpdateHeading"
+        jhiTranslate="sefinaApp.atividadeCPBS.home.createOrEditLabel"
+      >
+        Criar ou editar Atividade CPBS
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.atividadeCPBS.idAtividadeCpbs" for="field_idAtividadeCpbs"
+            >Id Atividade Cpbs</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="idAtividadeCpbs"
+            id="field_idAtividadeCpbs"
+            data-cy="idAtividadeCpbs"
+            formControlName="idAtividadeCpbs"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.atividadeCPBS.cnae" for="field_cnae">Cnae</label>
+          <input type="text" class="form-control" name="cnae" id="field_cnae" data-cy="cnae" formControlName="cnae" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.atividadeCPBS.descricaoCnae" for="field_descricaoCnae">Descricao Cnae</label>
+          <input
+            type="text"
+            class="form-control"
+            name="descricaoCnae"
+            id="field_descricaoCnae"
+            data-cy="descricaoCnae"
+            formControlName="descricaoCnae"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.atividadeCPBS.principal" for="field_principal">Principal</label>
+          <input type="checkbox" class="form-check" name="principal" id="field_principal" data-cy="principal" formControlName="principal" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.atividadeCPBS.idSegmentoIss" for="field_idSegmentoIss">Id Segmento Iss</label>
+          <input
+            type="text"
+            class="form-control"
+            name="idSegmentoIss"
+            id="field_idSegmentoIss"
+            data-cy="idSegmentoIss"
+            formControlName="idSegmentoIss"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.atividadeCPBS.descricaoSegmento" for="field_descricaoSegmento"
+            >Descricao Segmento</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="descricaoSegmento"
+            id="field_descricaoSegmento"
+            data-cy="descricaoSegmento"
+            formControlName="descricaoSegmento"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.atividadeCPBS.idListaSerCpbs" for="field_idListaSerCpbs"
+            >Id Lista Ser Cpbs</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="idListaSerCpbs"
+            id="field_idListaSerCpbs"
+            data-cy="idListaSerCpbs"
+            formControlName="idListaSerCpbs"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.atividadeCPBS.codigoListaSerCpbs" for="field_codigoListaSerCpbs"
+            >Codigo Lista Ser Cpbs</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="codigoListaSerCpbs"
+            id="field_codigoListaSerCpbs"
+            data-cy="codigoListaSerCpbs"
+            formControlName="codigoListaSerCpbs"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.atividadeCPBS.descricaoListaSerCpbs" for="field_descricaoListaSerCpbs"
+            >Descricao Lista Ser Cpbs</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="descricaoListaSerCpbs"
+            id="field_descricaoListaSerCpbs"
+            data-cy="descricaoListaSerCpbs"
+            formControlName="descricaoListaSerCpbs"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.atividadeCPBS.inscricaoCpbs" for="field_inscricaoCpbs">Inscricao Cpbs</label>
+          <select
+            class="form-control"
+            id="field_inscricaoCpbs"
+            data-cy="inscricaoCpbs"
+            name="inscricaoCpbs"
+            formControlName="inscricaoCpbs"
+            [compareWith]="compareInscricaoCPBS"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="inscricaoCPBSOption" *ngFor="let inscricaoCPBSOption of inscricaoCPBSSharedCollection">
+              {{ inscricaoCPBSOption.inscricao }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancelar</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Salvar</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

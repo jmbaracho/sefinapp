@@ -1,0 +1,527 @@
+<div>
+  <h2 id="page-heading" data-cy="NfseHeading">
+    <span jhiTranslate="sefinaApp.nfse.home.title">Nfses</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="sefinaApp.nfse.home.refreshListLabel">Atualizar lista</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-nfse"
+        [routerLink]="['/nfse/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="sefinaApp.nfse.home.createLabel"> Criar novo Nfse </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="nfses?.length === 0">
+    <span jhiTranslate="sefinaApp.nfse.home.notFound">Nenhum Nfse encontrado</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="nfses && nfses.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">Código</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="idNfse">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.idNfse">Id Nfse</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="competencia">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.competencia">Competencia</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="dataEmissao">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.dataEmissao">Data Emissao</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="ip">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.ip">Ip</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="optanteSimplesNacional">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.optanteSimplesNacional">Optante Simples Nacional</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="outrasInformacoes">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.outrasInformacoes">Outras Informacoes</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="idNfseSubstituida">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.idNfseSubstituida">Id Nfse Substituida</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="usuario">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.usuario">Usuario</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="statusNfse">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.statusNfse">Status Nfse</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="naturezaOperacao">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.naturezaOperacao">Natureza Operacao</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="rps">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.rps">Rps</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="inscricaoPrestador">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.inscricaoPrestador">Inscricao Prestador</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="tipoDocDigitado">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.tipoDocDigitado">Tipo Doc Digitado</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="statusAceite">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.statusAceite">Status Aceite</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="exclusaoLogica">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.exclusaoLogica">Exclusao Logica</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="ajustada">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.ajustada">Ajustada</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="observacaoAjuste">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.observacaoAjuste">Observacao Ajuste</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="aliquotaServico">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.aliquotaServico">Aliquota Servico</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="art">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.art">Art</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="baseCalculo">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.baseCalculo">Base Calculo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="codigoObra">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.codigoObra">Codigo Obra</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="valorServico">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.valorServico">Valor Servico</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="valorPis">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.valorPis">Valor Pis</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="valorLiquidoNfse">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.valorLiquidoNfse">Valor Liquido Nfse</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="valorIssRetido">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.valorIssRetido">Valor Iss Retido</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="valorIssOutroMunicipio">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.valorIssOutroMunicipio">Valor Iss Outro Municipio</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="valorIss">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.valorIss">Valor Iss</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="valorIr">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.valorIr">Valor Ir</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="valorInss">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.valorInss">Valor Inss</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="valorDescontoCondicionado">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.valorDescontoCondicionado">Valor Desconto Condicionado</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="valorDescontoIncondicionado">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.valorDescontoIncondicionado">Valor Desconto Incondicionado</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="valorDeducoes">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.valorDeducoes">Valor Deducoes</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="valorCsll">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.valorCsll">Valor Csll</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="valorCredito">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.valorCredito">Valor Credito</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="valorCofins">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.valorCofins">Valor Cofins</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="outrasRetencoes">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.outrasRetencoes">Outras Retencoes</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="issRetido">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.issRetido">Iss Retido</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="discriminacao">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.discriminacao">Discriminacao</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="municipioPrestacaoServico">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.municipioPrestacaoServico">Municipio Prestacao Servico</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="paisPrestacaoServico">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.paisPrestacaoServico">Pais Prestacao Servico</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="codRegimeEspecialTributacao">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.codRegimeEspecialTributacao">Cod Regime Especial Tributacao</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="codigoTributacaoMunicipio">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.codigoTributacaoMunicipio">Codigo Tributacao Municipio</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="itemListaServicoMunicipio">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.itemListaServicoMunicipio">Item Lista Servico Municipio</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="cpfCnpjTomador">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.cpfCnpjTomador">Cpf Cnpj Tomador</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="cpfCnpjPrestador">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.cpfCnpjPrestador">Cpf Cnpj Prestador</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="inscricaoMunicipalTomador">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.inscricaoMunicipalTomador">Inscricao Municipal Tomador</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="indicadorCpfCnpjTomador">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.indicadorCpfCnpjTomador">Indicador Cpf Cnpj Tomador</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="indicadorCpfCnpjPrestador">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.indicadorCpfCnpjPrestador">Indicador Cpf Cnpj Prestador</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="paisTomador">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.paisTomador">Pais Tomador</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="paisPrestador">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.paisPrestador">Pais Prestador</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="tipoTomador">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.tipoTomador">Tipo Tomador</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="codCidadeTomadorIBGE">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.codCidadeTomadorIBGE">Cod Cidade Tomador IBGE</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="codCidadePrestadorIBGE">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.codCidadePrestadorIBGE">Cod Cidade Prestador IBGE</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="tipoPrestador">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.tipoPrestador">Tipo Prestador</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="numeroEmpenho">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.numeroEmpenho">Numero Empenho</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="tipoTributacaoPrestExterno">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.tipoTributacaoPrestExterno">Tipo Tributacao Prest Externo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="cepPrestador">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.cepPrestador">Cep Prestador</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="cepTomador">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.cepTomador">Cep Tomador</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="idTipoAnexoSimplesNacional">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.idTipoAnexoSimplesNacional">Id Tipo Anexo Simples Nacional</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="idBloqueioNfse">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.idBloqueioNfse">Id Bloqueio Nfse</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="idPgdasd2018Atividade">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.idPgdasd2018Atividade">Id Pgdasd 2018 Atividade</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="inscricaoCpbs.inscricao">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.nfse.inscricaoCpbs">Inscricao Cpbs</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let nfse of nfses; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/nfse', nfse.id, 'view']">{{ nfse.id }}</a>
+          </td>
+          <td>{{ nfse.idNfse }}</td>
+          <td>{{ nfse.competencia }}</td>
+          <td>{{ nfse.dataEmissao }}</td>
+          <td>{{ nfse.ip }}</td>
+          <td>{{ nfse.optanteSimplesNacional }}</td>
+          <td>{{ nfse.outrasInformacoes }}</td>
+          <td>{{ nfse.idNfseSubstituida }}</td>
+          <td>{{ nfse.usuario }}</td>
+          <td>{{ nfse.statusNfse }}</td>
+          <td>{{ nfse.naturezaOperacao }}</td>
+          <td>{{ nfse.rps }}</td>
+          <td>{{ nfse.inscricaoPrestador }}</td>
+          <td>{{ nfse.tipoDocDigitado }}</td>
+          <td>{{ nfse.statusAceite }}</td>
+          <td>{{ nfse.exclusaoLogica }}</td>
+          <td>{{ nfse.ajustada }}</td>
+          <td>{{ nfse.observacaoAjuste }}</td>
+          <td>{{ nfse.aliquotaServico }}</td>
+          <td>{{ nfse.art }}</td>
+          <td>{{ nfse.baseCalculo }}</td>
+          <td>{{ nfse.codigoObra }}</td>
+          <td>{{ nfse.valorServico }}</td>
+          <td>{{ nfse.valorPis }}</td>
+          <td>{{ nfse.valorLiquidoNfse }}</td>
+          <td>{{ nfse.valorIssRetido }}</td>
+          <td>{{ nfse.valorIssOutroMunicipio }}</td>
+          <td>{{ nfse.valorIss }}</td>
+          <td>{{ nfse.valorIr }}</td>
+          <td>{{ nfse.valorInss }}</td>
+          <td>{{ nfse.valorDescontoCondicionado }}</td>
+          <td>{{ nfse.valorDescontoIncondicionado }}</td>
+          <td>{{ nfse.valorDeducoes }}</td>
+          <td>{{ nfse.valorCsll }}</td>
+          <td>{{ nfse.valorCredito }}</td>
+          <td>{{ nfse.valorCofins }}</td>
+          <td>{{ nfse.outrasRetencoes }}</td>
+          <td>{{ nfse.issRetido }}</td>
+          <td>{{ nfse.discriminacao }}</td>
+          <td>{{ nfse.municipioPrestacaoServico }}</td>
+          <td>{{ nfse.paisPrestacaoServico }}</td>
+          <td>{{ nfse.codRegimeEspecialTributacao }}</td>
+          <td>{{ nfse.codigoTributacaoMunicipio }}</td>
+          <td>{{ nfse.itemListaServicoMunicipio }}</td>
+          <td>{{ nfse.cpfCnpjTomador }}</td>
+          <td>{{ nfse.cpfCnpjPrestador }}</td>
+          <td>{{ nfse.inscricaoMunicipalTomador }}</td>
+          <td>{{ nfse.indicadorCpfCnpjTomador }}</td>
+          <td>{{ nfse.indicadorCpfCnpjPrestador }}</td>
+          <td>{{ nfse.paisTomador }}</td>
+          <td>{{ nfse.paisPrestador }}</td>
+          <td>{{ nfse.tipoTomador }}</td>
+          <td>{{ nfse.codCidadeTomadorIBGE }}</td>
+          <td>{{ nfse.codCidadePrestadorIBGE }}</td>
+          <td>{{ nfse.tipoPrestador }}</td>
+          <td>{{ nfse.numeroEmpenho }}</td>
+          <td>{{ nfse.tipoTributacaoPrestExterno }}</td>
+          <td>{{ nfse.cepPrestador }}</td>
+          <td>{{ nfse.cepTomador }}</td>
+          <td>{{ nfse.idTipoAnexoSimplesNacional }}</td>
+          <td>{{ nfse.idBloqueioNfse }}</td>
+          <td>{{ nfse.idPgdasd2018Atividade }}</td>
+          <td>
+            <div *ngIf="nfse.inscricaoCpbs">
+              <a [routerLink]="['/inscricao-cpbs', nfse.inscricaoCpbs.id, 'view']">{{ nfse.inscricaoCpbs.inscricao }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/nfse', nfse.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Visualizar</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/nfse', nfse.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editar</span>
+              </button>
+
+              <button type="submit" (click)="delete(nfse)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Excluir</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="nfses && nfses.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

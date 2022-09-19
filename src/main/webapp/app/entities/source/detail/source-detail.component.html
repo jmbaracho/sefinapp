@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="source">
+      <h2 data-cy="sourceDetailsHeading"><span jhiTranslate="sefinaApp.source.detail.title">Source</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">Código</span></dt>
+        <dd>
+          <span>{{ source.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.source.url">Url</span></dt>
+        <dd>
+          <span>{{ source.url }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.source.enabled">Enabled</span></dt>
+        <dd>
+          <span>{{ source.enabled }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.source.failed">Failed</span></dt>
+        <dd>
+          <span>{{ source.failed }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.source.createdAt">Created At</span></dt>
+        <dd>
+          <span>{{ source.createdAt | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.source.updatedAt">Updated At</span></dt>
+        <dd>
+          <span>{{ source.updatedAt | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.source.agent">Agent</span></dt>
+        <dd>
+          <div *ngIf="source.agent">
+            <a [routerLink]="['/agent', source.agent.id, 'view']">{{ source.agent.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.source.company">Company</span></dt>
+        <dd>
+          <div *ngIf="source.company">
+            <a [routerLink]="['/company', source.company.id, 'view']">{{ source.company.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Voltar</span>
+      </button>
+
+      <button type="button" [routerLink]="['/source', source.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

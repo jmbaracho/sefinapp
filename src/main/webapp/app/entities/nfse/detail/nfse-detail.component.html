@@ -1,0 +1,278 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="nfse">
+      <h2 data-cy="nfseDetailsHeading"><span jhiTranslate="sefinaApp.nfse.detail.title">Nfse</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">Código</span></dt>
+        <dd>
+          <span>{{ nfse.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.idNfse">Id Nfse</span></dt>
+        <dd>
+          <span>{{ nfse.idNfse }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.competencia">Competencia</span></dt>
+        <dd>
+          <span>{{ nfse.competencia }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.dataEmissao">Data Emissao</span></dt>
+        <dd>
+          <span>{{ nfse.dataEmissao }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.ip">Ip</span></dt>
+        <dd>
+          <span>{{ nfse.ip }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.optanteSimplesNacional">Optante Simples Nacional</span></dt>
+        <dd>
+          <span>{{ nfse.optanteSimplesNacional }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.outrasInformacoes">Outras Informacoes</span></dt>
+        <dd>
+          <span>{{ nfse.outrasInformacoes }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.idNfseSubstituida">Id Nfse Substituida</span></dt>
+        <dd>
+          <span>{{ nfse.idNfseSubstituida }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.usuario">Usuario</span></dt>
+        <dd>
+          <span>{{ nfse.usuario }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.statusNfse">Status Nfse</span></dt>
+        <dd>
+          <span>{{ nfse.statusNfse }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.naturezaOperacao">Natureza Operacao</span></dt>
+        <dd>
+          <span>{{ nfse.naturezaOperacao }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.rps">Rps</span></dt>
+        <dd>
+          <span>{{ nfse.rps }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.inscricaoPrestador">Inscricao Prestador</span></dt>
+        <dd>
+          <span>{{ nfse.inscricaoPrestador }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.tipoDocDigitado">Tipo Doc Digitado</span></dt>
+        <dd>
+          <span>{{ nfse.tipoDocDigitado }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.statusAceite">Status Aceite</span></dt>
+        <dd>
+          <span>{{ nfse.statusAceite }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.exclusaoLogica">Exclusao Logica</span></dt>
+        <dd>
+          <span>{{ nfse.exclusaoLogica }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.ajustada">Ajustada</span></dt>
+        <dd>
+          <span>{{ nfse.ajustada }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.observacaoAjuste">Observacao Ajuste</span></dt>
+        <dd>
+          <span>{{ nfse.observacaoAjuste }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.aliquotaServico">Aliquota Servico</span></dt>
+        <dd>
+          <span>{{ nfse.aliquotaServico }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.art">Art</span></dt>
+        <dd>
+          <span>{{ nfse.art }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.baseCalculo">Base Calculo</span></dt>
+        <dd>
+          <span>{{ nfse.baseCalculo }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.codigoObra">Codigo Obra</span></dt>
+        <dd>
+          <span>{{ nfse.codigoObra }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.valorServico">Valor Servico</span></dt>
+        <dd>
+          <span>{{ nfse.valorServico }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.valorPis">Valor Pis</span></dt>
+        <dd>
+          <span>{{ nfse.valorPis }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.valorLiquidoNfse">Valor Liquido Nfse</span></dt>
+        <dd>
+          <span>{{ nfse.valorLiquidoNfse }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.valorIssRetido">Valor Iss Retido</span></dt>
+        <dd>
+          <span>{{ nfse.valorIssRetido }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.valorIssOutroMunicipio">Valor Iss Outro Municipio</span></dt>
+        <dd>
+          <span>{{ nfse.valorIssOutroMunicipio }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.valorIss">Valor Iss</span></dt>
+        <dd>
+          <span>{{ nfse.valorIss }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.valorIr">Valor Ir</span></dt>
+        <dd>
+          <span>{{ nfse.valorIr }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.valorInss">Valor Inss</span></dt>
+        <dd>
+          <span>{{ nfse.valorInss }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.valorDescontoCondicionado">Valor Desconto Condicionado</span></dt>
+        <dd>
+          <span>{{ nfse.valorDescontoCondicionado }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.valorDescontoIncondicionado">Valor Desconto Incondicionado</span></dt>
+        <dd>
+          <span>{{ nfse.valorDescontoIncondicionado }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.valorDeducoes">Valor Deducoes</span></dt>
+        <dd>
+          <span>{{ nfse.valorDeducoes }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.valorCsll">Valor Csll</span></dt>
+        <dd>
+          <span>{{ nfse.valorCsll }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.valorCredito">Valor Credito</span></dt>
+        <dd>
+          <span>{{ nfse.valorCredito }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.valorCofins">Valor Cofins</span></dt>
+        <dd>
+          <span>{{ nfse.valorCofins }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.outrasRetencoes">Outras Retencoes</span></dt>
+        <dd>
+          <span>{{ nfse.outrasRetencoes }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.issRetido">Iss Retido</span></dt>
+        <dd>
+          <span>{{ nfse.issRetido }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.discriminacao">Discriminacao</span></dt>
+        <dd>
+          <span>{{ nfse.discriminacao }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.municipioPrestacaoServico">Municipio Prestacao Servico</span></dt>
+        <dd>
+          <span>{{ nfse.municipioPrestacaoServico }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.paisPrestacaoServico">Pais Prestacao Servico</span></dt>
+        <dd>
+          <span>{{ nfse.paisPrestacaoServico }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.codRegimeEspecialTributacao">Cod Regime Especial Tributacao</span></dt>
+        <dd>
+          <span>{{ nfse.codRegimeEspecialTributacao }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.codigoTributacaoMunicipio">Codigo Tributacao Municipio</span></dt>
+        <dd>
+          <span>{{ nfse.codigoTributacaoMunicipio }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.itemListaServicoMunicipio">Item Lista Servico Municipio</span></dt>
+        <dd>
+          <span>{{ nfse.itemListaServicoMunicipio }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.cpfCnpjTomador">Cpf Cnpj Tomador</span></dt>
+        <dd>
+          <span>{{ nfse.cpfCnpjTomador }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.cpfCnpjPrestador">Cpf Cnpj Prestador</span></dt>
+        <dd>
+          <span>{{ nfse.cpfCnpjPrestador }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.inscricaoMunicipalTomador">Inscricao Municipal Tomador</span></dt>
+        <dd>
+          <span>{{ nfse.inscricaoMunicipalTomador }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.indicadorCpfCnpjTomador">Indicador Cpf Cnpj Tomador</span></dt>
+        <dd>
+          <span>{{ nfse.indicadorCpfCnpjTomador }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.indicadorCpfCnpjPrestador">Indicador Cpf Cnpj Prestador</span></dt>
+        <dd>
+          <span>{{ nfse.indicadorCpfCnpjPrestador }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.paisTomador">Pais Tomador</span></dt>
+        <dd>
+          <span>{{ nfse.paisTomador }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.paisPrestador">Pais Prestador</span></dt>
+        <dd>
+          <span>{{ nfse.paisPrestador }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.tipoTomador">Tipo Tomador</span></dt>
+        <dd>
+          <span>{{ nfse.tipoTomador }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.codCidadeTomadorIBGE">Cod Cidade Tomador IBGE</span></dt>
+        <dd>
+          <span>{{ nfse.codCidadeTomadorIBGE }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.codCidadePrestadorIBGE">Cod Cidade Prestador IBGE</span></dt>
+        <dd>
+          <span>{{ nfse.codCidadePrestadorIBGE }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.tipoPrestador">Tipo Prestador</span></dt>
+        <dd>
+          <span>{{ nfse.tipoPrestador }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.numeroEmpenho">Numero Empenho</span></dt>
+        <dd>
+          <span>{{ nfse.numeroEmpenho }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.tipoTributacaoPrestExterno">Tipo Tributacao Prest Externo</span></dt>
+        <dd>
+          <span>{{ nfse.tipoTributacaoPrestExterno }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.cepPrestador">Cep Prestador</span></dt>
+        <dd>
+          <span>{{ nfse.cepPrestador }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.cepTomador">Cep Tomador</span></dt>
+        <dd>
+          <span>{{ nfse.cepTomador }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.idTipoAnexoSimplesNacional">Id Tipo Anexo Simples Nacional</span></dt>
+        <dd>
+          <span>{{ nfse.idTipoAnexoSimplesNacional }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.idBloqueioNfse">Id Bloqueio Nfse</span></dt>
+        <dd>
+          <span>{{ nfse.idBloqueioNfse }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.idPgdasd2018Atividade">Id Pgdasd 2018 Atividade</span></dt>
+        <dd>
+          <span>{{ nfse.idPgdasd2018Atividade }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.nfse.inscricaoCpbs">Inscricao Cpbs</span></dt>
+        <dd>
+          <div *ngIf="nfse.inscricaoCpbs">
+            <a [routerLink]="['/inscricao-cpbs', nfse.inscricaoCpbs.id, 'view']">{{ nfse.inscricaoCpbs.inscricao }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Voltar</span>
+      </button>
+
+      <button type="button" [routerLink]="['/nfse', nfse.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

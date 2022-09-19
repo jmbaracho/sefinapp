@@ -48,6 +48,26 @@ public class CacheConfiguration {
             createCache(cm, br.com.sefin.domain.User.class.getName());
             createCache(cm, br.com.sefin.domain.Authority.class.getName());
             createCache(cm, br.com.sefin.domain.User.class.getName() + ".authorities");
+            createCache(cm, br.com.sefin.domain.Agent.class.getName());
+            createCache(cm, br.com.sefin.domain.Agent.class.getName() + ".schedules");
+            createCache(cm, br.com.sefin.domain.ScheduleExecution.class.getName());
+            createCache(cm, br.com.sefin.domain.ScheduleExecution.class.getName() + ".tasks");
+            createCache(cm, br.com.sefin.domain.Schedule.class.getName());
+            createCache(cm, br.com.sefin.domain.Company.class.getName());
+            createCache(cm, br.com.sefin.domain.Source.class.getName());
+            createCache(cm, br.com.sefin.domain.TaskStatus.class.getName());
+            createCache(cm, br.com.sefin.domain.TaskStatus.class.getName() + ".tasks");
+            createCache(cm, br.com.sefin.domain.Task.class.getName());
+            createCache(cm, br.com.sefin.domain.RawData.class.getName());
+            createCache(cm, br.com.sefin.domain.Facility.class.getName());
+            createCache(cm, br.com.sefin.domain.HotelResultFacility.class.getName());
+            createCache(cm, br.com.sefin.domain.HotelResult.class.getName());
+            createCache(cm, br.com.sefin.domain.Room.class.getName());
+            createCache(cm, br.com.sefin.domain.Nfse.class.getName());
+            createCache(cm, br.com.sefin.domain.InscricaoCPBS.class.getName());
+            createCache(cm, br.com.sefin.domain.AtividadeCPBS.class.getName());
+            createCache(cm, br.com.sefin.domain.Tag.class.getName());
+            createCache(cm, br.com.sefin.domain.TagText.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

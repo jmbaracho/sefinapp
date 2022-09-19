@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="scheduleExecution">
+      <h2 data-cy="scheduleExecutionDetailsHeading">
+        <span jhiTranslate="sefinaApp.scheduleExecution.detail.title">Schedule Execution</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">Código</span></dt>
+        <dd>
+          <span>{{ scheduleExecution.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.scheduleExecution.createdAt">Created At</span></dt>
+        <dd>
+          <span>{{ scheduleExecution.createdAt | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.scheduleExecution.updatedAt">Updated At</span></dt>
+        <dd>
+          <span>{{ scheduleExecution.updatedAt | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.scheduleExecution.schedule">Schedule</span></dt>
+        <dd>
+          <div *ngIf="scheduleExecution.schedule">
+            <a [routerLink]="['/schedule', scheduleExecution.schedule.id, 'view']">{{ scheduleExecution.schedule.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Voltar</span>
+      </button>
+
+      <button type="button" [routerLink]="['/schedule-execution', scheduleExecution.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

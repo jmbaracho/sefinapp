@@ -1,0 +1,49 @@
+{
+  "applications": "*",
+  "changelogDate": "20220919175857",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "source",
+  "fields": [
+    {
+      "fieldName": "url",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "enabled",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "failed",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "updatedAt",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Source",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "id",
+      "otherEntityName": "agent",
+      "relationshipName": "agent",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "id",
+      "otherEntityName": "company",
+      "relationshipName": "company",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

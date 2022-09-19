@@ -1,0 +1,33 @@
+{
+  "sefinaApp": {
+    "atividadeCPBS": {
+      "home": {
+        "title": "Atividade CPBS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Atividade CPBS",
+        "createOrEditLabel": "Create or edit a Atividade CPBS",
+        "notFound": "No Atividade CPBS found"
+      },
+      "created": "A new Atividade CPBS is created with identifier {{ param }}",
+      "updated": "A Atividade CPBS is updated with identifier {{ param }}",
+      "deleted": "A Atividade CPBS is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Atividade CPBS {{ id }}?"
+      },
+      "detail": {
+        "title": "Atividade CPBS"
+      },
+      "id": "ID",
+      "idAtividadeCpbs": "Id Atividade Cpbs",
+      "cnae": "Cnae",
+      "descricaoCnae": "Descricao Cnae",
+      "principal": "Principal",
+      "idSegmentoIss": "Id Segmento Iss",
+      "descricaoSegmento": "Descricao Segmento",
+      "idListaSerCpbs": "Id Lista Ser Cpbs",
+      "codigoListaSerCpbs": "Codigo Lista Ser Cpbs",
+      "descricaoListaSerCpbs": "Descricao Lista Ser Cpbs",
+      "inscricaoCpbs": "Inscricao Cpbs"
+    }
+  }
+}

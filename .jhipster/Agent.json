@@ -1,0 +1,55 @@
+{
+  "applications": "*",
+  "changelogDate": "20220919175853",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "agent",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "maxBlocksPerTime",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "blockSize",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "intervalBetweenBlocks",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "intervalBetweenTasks",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "maxAttempts",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "updatedAt",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Agent",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "schedule",
+      "otherEntityRelationshipName": "agent",
+      "relationshipName": "schedule",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

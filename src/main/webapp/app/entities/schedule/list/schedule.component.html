@@ -1,0 +1,152 @@
+<div>
+  <h2 id="page-heading" data-cy="ScheduleHeading">
+    <span jhiTranslate="sefinaApp.schedule.home.title">Schedules</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="sefinaApp.schedule.home.refreshListLabel">Atualizar lista</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-schedule"
+        [routerLink]="['/schedule/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="sefinaApp.schedule.home.createLabel"> Criar novo Schedule </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="schedules?.length === 0">
+    <span jhiTranslate="sefinaApp.schedule.home.notFound">Nenhum Schedule encontrado</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="schedules && schedules.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">Código</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="rule">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.schedule.rule">Rule</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="firstInterval">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.schedule.firstInterval">First Interval</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="secondInterval">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.schedule.secondInterval">Second Interval</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="thirdInterval">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.schedule.thirdInterval">Third Interval</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="createdAt">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.schedule.createdAt">Created At</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="updatedAt">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.schedule.updatedAt">Updated At</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="agent.id">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.schedule.agent">Agent</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let schedule of schedules; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/schedule', schedule.id, 'view']">{{ schedule.id }}</a>
+          </td>
+          <td>{{ schedule.rule }}</td>
+          <td>{{ schedule.firstInterval }}</td>
+          <td>{{ schedule.secondInterval }}</td>
+          <td>{{ schedule.thirdInterval }}</td>
+          <td>{{ schedule.createdAt | formatMediumDate }}</td>
+          <td>{{ schedule.updatedAt | formatMediumDate }}</td>
+          <td>
+            <div *ngIf="schedule.agent">
+              <a [routerLink]="['/agent', schedule.agent.id, 'view']">{{ schedule.agent.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/schedule', schedule.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Visualizar</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/schedule', schedule.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editar</span>
+              </button>
+
+              <button type="submit" (click)="delete(schedule)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Excluir</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="schedules && schedules.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

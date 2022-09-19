@@ -1,0 +1,130 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-agent-heading" data-cy="AgentCreateUpdateHeading" jhiTranslate="sefinaApp.agent.home.createOrEditLabel">
+        Criar ou editar Agent
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.agent.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.agent.maxBlocksPerTime" for="field_maxBlocksPerTime">Max Blocks Per Time</label>
+          <input
+            type="number"
+            class="form-control"
+            name="maxBlocksPerTime"
+            id="field_maxBlocksPerTime"
+            data-cy="maxBlocksPerTime"
+            formControlName="maxBlocksPerTime"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.agent.blockSize" for="field_blockSize">Block Size</label>
+          <input type="number" class="form-control" name="blockSize" id="field_blockSize" data-cy="blockSize" formControlName="blockSize" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.agent.intervalBetweenBlocks" for="field_intervalBetweenBlocks"
+            >Interval Between Blocks</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="intervalBetweenBlocks"
+            id="field_intervalBetweenBlocks"
+            data-cy="intervalBetweenBlocks"
+            formControlName="intervalBetweenBlocks"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.agent.intervalBetweenTasks" for="field_intervalBetweenTasks"
+            >Interval Between Tasks</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="intervalBetweenTasks"
+            id="field_intervalBetweenTasks"
+            data-cy="intervalBetweenTasks"
+            formControlName="intervalBetweenTasks"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.agent.maxAttempts" for="field_maxAttempts">Max Attempts</label>
+          <input
+            type="number"
+            class="form-control"
+            name="maxAttempts"
+            id="field_maxAttempts"
+            data-cy="maxAttempts"
+            formControlName="maxAttempts"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.agent.createdAt" for="field_createdAt">Created At</label>
+          <div class="input-group">
+            <input
+              id="field_createdAt"
+              data-cy="createdAt"
+              type="text"
+              class="form-control"
+              name="createdAt"
+              ngbDatepicker
+              #createdAtDp="ngbDatepicker"
+              formControlName="createdAt"
+            />
+            <button type="button" class="btn btn-secondary" (click)="createdAtDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.agent.updatedAt" for="field_updatedAt">Updated At</label>
+          <div class="input-group">
+            <input
+              id="field_updatedAt"
+              data-cy="updatedAt"
+              type="text"
+              class="form-control"
+              name="updatedAt"
+              ngbDatepicker
+              #updatedAtDp="ngbDatepicker"
+              formControlName="updatedAt"
+            />
+            <button type="button" class="btn btn-secondary" (click)="updatedAtDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancelar</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Salvar</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

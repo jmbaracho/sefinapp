@@ -1,0 +1,30 @@
+{
+  "sefinaApp": {
+    "source": {
+      "home": {
+        "title": "Sources",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Source",
+        "createOrEditLabel": "Criar ou editar Source",
+        "notFound": "Nenhum Source encontrado"
+      },
+      "created": "Um novo Source foi criado com o identificador {{ param }}",
+      "updated": "Um Source foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Source foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Source {{ id }}?"
+      },
+      "detail": {
+        "title": "Source"
+      },
+      "id": "ID",
+      "url": "Url",
+      "enabled": "Enabled",
+      "failed": "Failed",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "agent": "Agent",
+      "company": "Company"
+    }
+  }
+}

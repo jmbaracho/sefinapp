@@ -1,0 +1,48 @@
+{
+  "applications": "*",
+  "changelogDate": "20220919175855",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "schedule",
+  "fields": [
+    {
+      "fieldName": "rule",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "firstInterval",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "secondInterval",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "thirdInterval",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "updatedAt",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Schedule",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "id",
+      "otherEntityName": "agent",
+      "otherEntityRelationshipName": "schedule",
+      "relationshipName": "agent",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

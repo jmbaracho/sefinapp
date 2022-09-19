@@ -1,0 +1,81 @@
+{
+  "applications": "*",
+  "changelogDate": "20220919175906",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "inscricao_cpbs",
+  "fields": [
+    {
+      "fieldName": "inscricao",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nome",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nomeFantasia",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numDocumento",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "situacao",
+      "fieldType": "CPBSSituacaoEnum",
+      "fieldValues": "ATIVA,SUSPENSA,BAIXADA"
+    },
+    {
+      "fieldName": "optanteSimplesNacional",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "codigoNaturezaJuridica",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "descricaoNaturezaJuridica",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tipoLogradouro",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tituloLogradouro",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "logradouro",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numero",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "complemento",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nomeCidade",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nomeBairro",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numeroCep",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "InscricaoCPBS",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="schedule">
+      <h2 data-cy="scheduleDetailsHeading"><span jhiTranslate="sefinaApp.schedule.detail.title">Schedule</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">Código</span></dt>
+        <dd>
+          <span>{{ schedule.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.schedule.rule">Rule</span></dt>
+        <dd>
+          <span>{{ schedule.rule }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.schedule.firstInterval">First Interval</span></dt>
+        <dd>
+          <span>{{ schedule.firstInterval }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.schedule.secondInterval">Second Interval</span></dt>
+        <dd>
+          <span>{{ schedule.secondInterval }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.schedule.thirdInterval">Third Interval</span></dt>
+        <dd>
+          <span>{{ schedule.thirdInterval }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.schedule.createdAt">Created At</span></dt>
+        <dd>
+          <span>{{ schedule.createdAt | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.schedule.updatedAt">Updated At</span></dt>
+        <dd>
+          <span>{{ schedule.updatedAt | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.schedule.agent">Agent</span></dt>
+        <dd>
+          <div *ngIf="schedule.agent">
+            <a [routerLink]="['/agent', schedule.agent.id, 'view']">{{ schedule.agent.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Voltar</span>
+      </button>
+
+      <button type="button" [routerLink]="['/schedule', schedule.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

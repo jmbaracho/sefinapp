@@ -1,0 +1,32 @@
+{
+  "sefinaApp": {
+    "hotelResult": {
+      "home": {
+        "title": "Hotel Results",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Hotel Result",
+        "createOrEditLabel": "Criar ou editar Hotel Result",
+        "notFound": "Nenhum Hotel Result encontrado"
+      },
+      "created": "Um novo Hotel Result foi criado com o identificador {{ param }}",
+      "updated": "Um Hotel Result foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Hotel Result foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Hotel Result {{ id }}?"
+      },
+      "detail": {
+        "title": "Hotel Result"
+      },
+      "id": "ID",
+      "name": "Name",
+      "address": "Address",
+      "starsCount": "Stars Count",
+      "rating": "Rating",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "task": "Task",
+      "agent": "Agent",
+      "company": "Company"
+    }
+  }
+}

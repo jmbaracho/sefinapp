@@ -1,0 +1,10 @@
+{
+  "sefinaApp": {
+    "CPBSSituacaoEnum": {
+      "null": "",
+      "ATIVA": "ATIVA",
+      "SUSPENSA": "SUSPENSA",
+      "BAIXADA": "BAIXADA"
+    }
+  }
+}

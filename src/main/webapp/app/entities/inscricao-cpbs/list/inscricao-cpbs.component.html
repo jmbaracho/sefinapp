@@ -1,0 +1,211 @@
+<div>
+  <h2 id="page-heading" data-cy="InscricaoCPBSHeading">
+    <span jhiTranslate="sefinaApp.inscricaoCPBS.home.title">Inscricao CPBS</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="sefinaApp.inscricaoCPBS.home.refreshListLabel">Atualizar lista</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-inscricao-cpbs"
+        [routerLink]="['/inscricao-cpbs/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="sefinaApp.inscricaoCPBS.home.createLabel"> Criar novo Inscricao CPBS </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="inscricaoCPBS?.length === 0">
+    <span jhiTranslate="sefinaApp.inscricaoCPBS.home.notFound">Nenhum Inscricao CPBS encontrado</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="inscricaoCPBS && inscricaoCPBS.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">Código</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="inscricao">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.inscricaoCPBS.inscricao">Inscricao</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="nome">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.inscricaoCPBS.nome">Nome</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="nomeFantasia">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.inscricaoCPBS.nomeFantasia">Nome Fantasia</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="numDocumento">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.inscricaoCPBS.numDocumento">Num Documento</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="situacao">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.inscricaoCPBS.situacao">Situacao</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="optanteSimplesNacional">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.inscricaoCPBS.optanteSimplesNacional">Optante Simples Nacional</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="codigoNaturezaJuridica">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.inscricaoCPBS.codigoNaturezaJuridica">Codigo Natureza Juridica</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="descricaoNaturezaJuridica">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.inscricaoCPBS.descricaoNaturezaJuridica">Descricao Natureza Juridica</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="tipoLogradouro">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.inscricaoCPBS.tipoLogradouro">Tipo Logradouro</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="tituloLogradouro">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.inscricaoCPBS.tituloLogradouro">Titulo Logradouro</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="logradouro">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.inscricaoCPBS.logradouro">Logradouro</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="numero">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.inscricaoCPBS.numero">Numero</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="complemento">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.inscricaoCPBS.complemento">Complemento</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="nomeCidade">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.inscricaoCPBS.nomeCidade">Nome Cidade</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="nomeBairro">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.inscricaoCPBS.nomeBairro">Nome Bairro</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="numeroCep">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.inscricaoCPBS.numeroCep">Numero Cep</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let inscricaoCPBS of inscricaoCPBS; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/inscricao-cpbs', inscricaoCPBS.id, 'view']">{{ inscricaoCPBS.id }}</a>
+          </td>
+          <td>{{ inscricaoCPBS.inscricao }}</td>
+          <td>{{ inscricaoCPBS.nome }}</td>
+          <td>{{ inscricaoCPBS.nomeFantasia }}</td>
+          <td>{{ inscricaoCPBS.numDocumento }}</td>
+          <td jhiTranslate="{{ 'sefinaApp.CPBSSituacaoEnum.' + inscricaoCPBS.situacao }}">{{ inscricaoCPBS.situacao }}</td>
+          <td>{{ inscricaoCPBS.optanteSimplesNacional }}</td>
+          <td>{{ inscricaoCPBS.codigoNaturezaJuridica }}</td>
+          <td>{{ inscricaoCPBS.descricaoNaturezaJuridica }}</td>
+          <td>{{ inscricaoCPBS.tipoLogradouro }}</td>
+          <td>{{ inscricaoCPBS.tituloLogradouro }}</td>
+          <td>{{ inscricaoCPBS.logradouro }}</td>
+          <td>{{ inscricaoCPBS.numero }}</td>
+          <td>{{ inscricaoCPBS.complemento }}</td>
+          <td>{{ inscricaoCPBS.nomeCidade }}</td>
+          <td>{{ inscricaoCPBS.nomeBairro }}</td>
+          <td>{{ inscricaoCPBS.numeroCep }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/inscricao-cpbs', inscricaoCPBS.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Visualizar</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/inscricao-cpbs', inscricaoCPBS.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editar</span>
+              </button>
+
+              <button type="submit" (click)="delete(inscricaoCPBS)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Excluir</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="inscricaoCPBS && inscricaoCPBS.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

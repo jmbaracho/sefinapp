@@ -1,0 +1,27 @@
+{
+  "sefinaApp": {
+    "tagText": {
+      "home": {
+        "title": "Tag Texts",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Tag Text",
+        "createOrEditLabel": "Criar ou editar Tag Text",
+        "notFound": "Nenhum Tag Text encontrado"
+      },
+      "created": "Um novo Tag Text foi criado com o identificador {{ param }}",
+      "updated": "Um Tag Text foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Tag Text foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Tag Text {{ id }}?"
+      },
+      "detail": {
+        "title": "Tag Text"
+      },
+      "id": "ID",
+      "startPosition": "Start Position",
+      "endPosition": "End Position",
+      "nfse": "Nfse",
+      "tag": "Tag"
+    }
+  }
+}
