@@ -1,0 +1,26 @@
+{
+  "sefinaApp": {
+    "facility": {
+      "home": {
+        "title": "Facilities",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Facility",
+        "createOrEditLabel": "Criar ou editar Facility",
+        "notFound": "Nenhum Facility encontrado"
+      },
+      "created": "Um novo Facility foi criado com o identificador {{ param }}",
+      "updated": "Um Facility foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Facility foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Facility {{ id }}?"
+      },
+      "detail": {
+        "title": "Facility"
+      },
+      "id": "ID",
+      "name": "Name",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At"
+    }
+  }
+}

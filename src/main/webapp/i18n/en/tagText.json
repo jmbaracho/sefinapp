@@ -1,0 +1,27 @@
+{
+  "sefinaApp": {
+    "tagText": {
+      "home": {
+        "title": "Tag Texts",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Tag Text",
+        "createOrEditLabel": "Create or edit a Tag Text",
+        "notFound": "No Tag Texts found"
+      },
+      "created": "A new Tag Text is created with identifier {{ param }}",
+      "updated": "A Tag Text is updated with identifier {{ param }}",
+      "deleted": "A Tag Text is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tag Text {{ id }}?"
+      },
+      "detail": {
+        "title": "Tag Text"
+      },
+      "id": "ID",
+      "startPosition": "Start Position",
+      "endPosition": "End Position",
+      "nfse": "Nfse",
+      "tag": "Tag"
+    }
+  }
+}

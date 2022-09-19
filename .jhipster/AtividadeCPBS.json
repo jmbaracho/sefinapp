@@ -1,0 +1,59 @@
+{
+  "applications": "*",
+  "changelogDate": "20220919175907",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "atividade_cpbs",
+  "fields": [
+    {
+      "fieldName": "idAtividadeCpbs",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cnae",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "descricaoCnae",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "principal",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "idSegmentoIss",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "descricaoSegmento",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idListaSerCpbs",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "codigoListaSerCpbs",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "descricaoListaSerCpbs",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "AtividadeCPBS",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "inscricao",
+      "otherEntityName": "inscricaoCPBS",
+      "relationshipName": "inscricaoCpbs",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

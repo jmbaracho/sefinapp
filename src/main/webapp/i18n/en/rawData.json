@@ -1,0 +1,28 @@
+{
+  "sefinaApp": {
+    "rawData": {
+      "home": {
+        "title": "Raw Data",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Raw Data",
+        "createOrEditLabel": "Create or edit a Raw Data",
+        "notFound": "No Raw Data found"
+      },
+      "created": "A new Raw Data is created with identifier {{ param }}",
+      "updated": "A Raw Data is updated with identifier {{ param }}",
+      "deleted": "A Raw Data is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Raw Data {{ id }}?"
+      },
+      "detail": {
+        "title": "Raw Data"
+      },
+      "id": "ID",
+      "content": "Content",
+      "processed": "Processed",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "task": "Task"
+    }
+  }
+}

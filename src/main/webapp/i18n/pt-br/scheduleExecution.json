@@ -1,0 +1,27 @@
+{
+  "sefinaApp": {
+    "scheduleExecution": {
+      "home": {
+        "title": "Schedule Executions",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Schedule Execution",
+        "createOrEditLabel": "Criar ou editar Schedule Execution",
+        "notFound": "Nenhum Schedule Execution encontrado"
+      },
+      "created": "Um novo Schedule Execution foi criado com o identificador {{ param }}",
+      "updated": "Um Schedule Execution foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Schedule Execution foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Schedule Execution {{ id }}?"
+      },
+      "detail": {
+        "title": "Schedule Execution"
+      },
+      "id": "ID",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "task": "Task",
+      "schedule": "Schedule"
+    }
+  }
+}

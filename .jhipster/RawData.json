@@ -1,0 +1,39 @@
+{
+  "applications": "*",
+  "changelogDate": "20220919175900",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "raw_data",
+  "fields": [
+    {
+      "fieldName": "content",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "processed",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "updatedAt",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "RawData",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "id",
+      "otherEntityName": "task",
+      "relationshipName": "task",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

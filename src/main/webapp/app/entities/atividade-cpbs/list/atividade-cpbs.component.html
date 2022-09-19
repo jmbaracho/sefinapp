@@ -1,0 +1,173 @@
+<div>
+  <h2 id="page-heading" data-cy="AtividadeCPBSHeading">
+    <span jhiTranslate="sefinaApp.atividadeCPBS.home.title">Atividade CPBS</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="sefinaApp.atividadeCPBS.home.refreshListLabel">Atualizar lista</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-atividade-cpbs"
+        [routerLink]="['/atividade-cpbs/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="sefinaApp.atividadeCPBS.home.createLabel"> Criar novo Atividade CPBS </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="atividadeCPBS?.length === 0">
+    <span jhiTranslate="sefinaApp.atividadeCPBS.home.notFound">Nenhum Atividade CPBS encontrado</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="atividadeCPBS && atividadeCPBS.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">Código</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="idAtividadeCpbs">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.atividadeCPBS.idAtividadeCpbs">Id Atividade Cpbs</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="cnae">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.atividadeCPBS.cnae">Cnae</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="descricaoCnae">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.atividadeCPBS.descricaoCnae">Descricao Cnae</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="principal">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.atividadeCPBS.principal">Principal</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="idSegmentoIss">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.atividadeCPBS.idSegmentoIss">Id Segmento Iss</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="descricaoSegmento">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.atividadeCPBS.descricaoSegmento">Descricao Segmento</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="idListaSerCpbs">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.atividadeCPBS.idListaSerCpbs">Id Lista Ser Cpbs</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="codigoListaSerCpbs">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.atividadeCPBS.codigoListaSerCpbs">Codigo Lista Ser Cpbs</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="descricaoListaSerCpbs">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.atividadeCPBS.descricaoListaSerCpbs">Descricao Lista Ser Cpbs</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="inscricaoCpbs.inscricao">
+            <div class="d-flex">
+              <span jhiTranslate="sefinaApp.atividadeCPBS.inscricaoCpbs">Inscricao Cpbs</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let atividadeCPBS of atividadeCPBS; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/atividade-cpbs', atividadeCPBS.id, 'view']">{{ atividadeCPBS.id }}</a>
+          </td>
+          <td>{{ atividadeCPBS.idAtividadeCpbs }}</td>
+          <td>{{ atividadeCPBS.cnae }}</td>
+          <td>{{ atividadeCPBS.descricaoCnae }}</td>
+          <td>{{ atividadeCPBS.principal }}</td>
+          <td>{{ atividadeCPBS.idSegmentoIss }}</td>
+          <td>{{ atividadeCPBS.descricaoSegmento }}</td>
+          <td>{{ atividadeCPBS.idListaSerCpbs }}</td>
+          <td>{{ atividadeCPBS.codigoListaSerCpbs }}</td>
+          <td>{{ atividadeCPBS.descricaoListaSerCpbs }}</td>
+          <td>
+            <div *ngIf="atividadeCPBS.inscricaoCpbs">
+              <a [routerLink]="['/inscricao-cpbs', atividadeCPBS.inscricaoCpbs.id, 'view']">{{ atividadeCPBS.inscricaoCpbs.inscricao }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/atividade-cpbs', atividadeCPBS.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Visualizar</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/atividade-cpbs', atividadeCPBS.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editar</span>
+              </button>
+
+              <button type="submit" (click)="delete(atividadeCPBS)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Excluir</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="atividadeCPBS && atividadeCPBS.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

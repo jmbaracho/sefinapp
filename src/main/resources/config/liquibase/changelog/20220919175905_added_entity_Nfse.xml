@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity Nfse.
+    -->
+    <changeSet id="20220919175905-1" author="jhipster">
+        <createTable tableName="nfse">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="id_nfse" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="competencia" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="data_emissao" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="ip" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="optante_simples_nacional" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="outras_informacoes" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="id_nfse_substituida" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="usuario" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="status_nfse" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="natureza_operacao" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="rps" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="inscricao_prestador" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="tipo_doc_digitado" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="status_aceite" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="exclusao_logica" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="ajustada" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="observacao_ajuste" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="aliquota_servico" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="art" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="base_calculo" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="codigo_obra" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="valor_servico" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="valor_pis" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="valor_liquido_nfse" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="valor_iss_retido" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="valor_iss_outro_municipio" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="valor_iss" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="valor_ir" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="valor_inss" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="valor_desconto_condicionado" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="valor_desconto_incondicionado" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="valor_deducoes" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="valor_csll" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="valor_credito" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="valor_cofins" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="outras_retencoes" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="iss_retido" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="discriminacao" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="municipio_prestacao_servico" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="pais_prestacao_servico" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cod_regime_especial_tributacao" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="codigo_tributacao_municipio" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="item_lista_servico_municipio" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cpf_cnpj_tomador" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cpf_cnpj_prestador" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="inscricao_municipal_tomador" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="indicador_cpf_cnpj_tomador" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="indicador_cpf_cnpj_prestador" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="pais_tomador" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="pais_prestador" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="tipo_tomador" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="cod_cidade_tomador_ibge" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cod_cidade_prestador_ibge" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="tipo_prestador" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="numero_empenho" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="tipo_tributacao_prest_externo" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cep_prestador" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cep_tomador" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="id_tipo_anexo_simples_nacional" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="id_bloqueio_nfse" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="id_pgdasd_2018_atividade" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="inscricao_cpbs_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20220919175905-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/nfse.csv"
+                  separator=";"
+                  tableName="nfse"
+                  usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="id_nfse" type="string"/>
+            <column name="competencia" type="string"/>
+            <column name="data_emissao" type="string"/>
+            <column name="ip" type="string"/>
+            <column name="optante_simples_nacional" type="string"/>
+            <column name="outras_informacoes" type="string"/>
+            <column name="id_nfse_substituida" type="string"/>
+            <column name="usuario" type="string"/>
+            <column name="status_nfse" type="string"/>
+            <column name="natureza_operacao" type="numeric"/>
+            <column name="rps" type="string"/>
+            <column name="inscricao_prestador" type="string"/>
+            <column name="tipo_doc_digitado" type="string"/>
+            <column name="status_aceite" type="numeric"/>
+            <column name="exclusao_logica" type="string"/>
+            <column name="ajustada" type="string"/>
+            <column name="observacao_ajuste" type="string"/>
+            <column name="aliquota_servico" type="string"/>
+            <column name="art" type="string"/>
+            <column name="base_calculo" type="string"/>
+            <column name="codigo_obra" type="string"/>
+            <column name="valor_servico" type="string"/>
+            <column name="valor_pis" type="string"/>
+            <column name="valor_liquido_nfse" type="string"/>
+            <column name="valor_iss_retido" type="string"/>
+            <column name="valor_iss_outro_municipio" type="string"/>
+            <column name="valor_iss" type="string"/>
+            <column name="valor_ir" type="string"/>
+            <column name="valor_inss" type="string"/>
+            <column name="valor_desconto_condicionado" type="string"/>
+            <column name="valor_desconto_incondicionado" type="string"/>
+            <column name="valor_deducoes" type="string"/>
+            <column name="valor_csll" type="string"/>
+            <column name="valor_credito" type="string"/>
+            <column name="valor_cofins" type="string"/>
+            <column name="outras_retencoes" type="string"/>
+            <column name="iss_retido" type="string"/>
+            <column name="discriminacao" type="string"/>
+            <column name="municipio_prestacao_servico" type="string"/>
+            <column name="pais_prestacao_servico" type="string"/>
+            <column name="cod_regime_especial_tributacao" type="numeric"/>
+            <column name="codigo_tributacao_municipio" type="string"/>
+            <column name="item_lista_servico_municipio" type="string"/>
+            <column name="cpf_cnpj_tomador" type="string"/>
+            <column name="cpf_cnpj_prestador" type="string"/>
+            <column name="inscricao_municipal_tomador" type="string"/>
+            <column name="indicador_cpf_cnpj_tomador" type="numeric"/>
+            <column name="indicador_cpf_cnpj_prestador" type="numeric"/>
+            <column name="pais_tomador" type="string"/>
+            <column name="pais_prestador" type="string"/>
+            <column name="tipo_tomador" type="numeric"/>
+            <column name="cod_cidade_tomador_ibge" type="string"/>
+            <column name="cod_cidade_prestador_ibge" type="string"/>
+            <column name="tipo_prestador" type="numeric"/>
+            <column name="numero_empenho" type="string"/>
+            <column name="tipo_tributacao_prest_externo" type="string"/>
+            <column name="cep_prestador" type="string"/>
+            <column name="cep_tomador" type="string"/>
+            <column name="id_tipo_anexo_simples_nacional" type="string"/>
+            <column name="id_bloqueio_nfse" type="numeric"/>
+            <column name="id_pgdasd_2018_atividade" type="string"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

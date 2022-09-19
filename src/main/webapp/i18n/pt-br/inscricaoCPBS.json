@@ -1,0 +1,39 @@
+{
+  "sefinaApp": {
+    "inscricaoCPBS": {
+      "home": {
+        "title": "Inscricao CPBS",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Inscricao CPBS",
+        "createOrEditLabel": "Criar ou editar Inscricao CPBS",
+        "notFound": "Nenhum Inscricao CPBS encontrado"
+      },
+      "created": "Um novo Inscricao CPBS foi criado com o identificador {{ param }}",
+      "updated": "Um Inscricao CPBS foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Inscricao CPBS foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Inscricao CPBS {{ id }}?"
+      },
+      "detail": {
+        "title": "Inscricao CPBS"
+      },
+      "id": "ID",
+      "inscricao": "Inscricao",
+      "nome": "Nome",
+      "nomeFantasia": "Nome Fantasia",
+      "numDocumento": "Num Documento",
+      "situacao": "Situacao",
+      "optanteSimplesNacional": "Optante Simples Nacional",
+      "codigoNaturezaJuridica": "Codigo Natureza Juridica",
+      "descricaoNaturezaJuridica": "Descricao Natureza Juridica",
+      "tipoLogradouro": "Tipo Logradouro",
+      "tituloLogradouro": "Titulo Logradouro",
+      "logradouro": "Logradouro",
+      "numero": "Numero",
+      "complemento": "Complemento",
+      "nomeCidade": "Nome Cidade",
+      "nomeBairro": "Nome Bairro",
+      "numeroCep": "Numero Cep"
+    }
+  }
+}

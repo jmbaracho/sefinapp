@@ -1,0 +1,133 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-task-heading" data-cy="TaskCreateUpdateHeading" jhiTranslate="sefinaApp.task.home.createOrEditLabel">
+        Criar ou editar Task
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.task.source" for="field_source">Source</label>
+          <input type="text" class="form-control" name="source" id="field_source" data-cy="source" formControlName="source" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.task.attemptCount" for="field_attemptCount">Attempt Count</label>
+          <input
+            type="number"
+            class="form-control"
+            name="attemptCount"
+            id="field_attemptCount"
+            data-cy="attemptCount"
+            formControlName="attemptCount"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.task.targetDateInterval" for="field_targetDateInterval"
+            >Target Date Interval</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="targetDateInterval"
+            id="field_targetDateInterval"
+            data-cy="targetDateInterval"
+            formControlName="targetDateInterval"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.task.createdAt" for="field_createdAt">Created At</label>
+          <div class="input-group">
+            <input
+              id="field_createdAt"
+              data-cy="createdAt"
+              type="text"
+              class="form-control"
+              name="createdAt"
+              ngbDatepicker
+              #createdAtDp="ngbDatepicker"
+              formControlName="createdAt"
+            />
+            <button type="button" class="btn btn-secondary" (click)="createdAtDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.task.updatedAt" for="field_updatedAt">Updated At</label>
+          <div class="input-group">
+            <input
+              id="field_updatedAt"
+              data-cy="updatedAt"
+              type="text"
+              class="form-control"
+              name="updatedAt"
+              ngbDatepicker
+              #updatedAtDp="ngbDatepicker"
+              formControlName="updatedAt"
+            />
+            <button type="button" class="btn btn-secondary" (click)="updatedAtDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.task.status" for="field_status">Status</label>
+          <select
+            class="form-control"
+            id="field_status"
+            data-cy="status"
+            name="status"
+            formControlName="status"
+            [compareWith]="compareTaskStatus"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="taskStatusOption" *ngFor="let taskStatusOption of taskStatusesSharedCollection">
+              {{ taskStatusOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.task.scheduleExecution" for="field_scheduleExecution">Schedule Execution</label>
+          <select
+            class="form-control"
+            id="field_scheduleExecution"
+            data-cy="scheduleExecution"
+            name="scheduleExecution"
+            formControlName="scheduleExecution"
+            [compareWith]="compareScheduleExecution"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="scheduleExecutionOption" *ngFor="let scheduleExecutionOption of scheduleExecutionsSharedCollection">
+              {{ scheduleExecutionOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancelar</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Salvar</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

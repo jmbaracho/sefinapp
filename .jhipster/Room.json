@@ -1,0 +1,51 @@
+{
+  "applications": "*",
+  "changelogDate": "20220919175904",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "room",
+  "fields": [
+    {
+      "fieldName": "numberOfPeople",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "periodType",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "checkInDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "checkOutDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "updatedAt",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Room",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "id",
+      "otherEntityName": "hotelResult",
+      "relationshipName": "hotelResult",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

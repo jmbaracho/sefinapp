@@ -1,0 +1,737 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-nfse-heading" data-cy="NfseCreateUpdateHeading" jhiTranslate="sefinaApp.nfse.home.createOrEditLabel">
+        Criar ou editar Nfse
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.idNfse" for="field_idNfse">Id Nfse</label>
+          <input type="text" class="form-control" name="idNfse" id="field_idNfse" data-cy="idNfse" formControlName="idNfse" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.competencia" for="field_competencia">Competencia</label>
+          <input
+            type="text"
+            class="form-control"
+            name="competencia"
+            id="field_competencia"
+            data-cy="competencia"
+            formControlName="competencia"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.dataEmissao" for="field_dataEmissao">Data Emissao</label>
+          <input
+            type="text"
+            class="form-control"
+            name="dataEmissao"
+            id="field_dataEmissao"
+            data-cy="dataEmissao"
+            formControlName="dataEmissao"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.ip" for="field_ip">Ip</label>
+          <input type="text" class="form-control" name="ip" id="field_ip" data-cy="ip" formControlName="ip" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.optanteSimplesNacional" for="field_optanteSimplesNacional"
+            >Optante Simples Nacional</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="optanteSimplesNacional"
+            id="field_optanteSimplesNacional"
+            data-cy="optanteSimplesNacional"
+            formControlName="optanteSimplesNacional"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.outrasInformacoes" for="field_outrasInformacoes">Outras Informacoes</label>
+          <input
+            type="text"
+            class="form-control"
+            name="outrasInformacoes"
+            id="field_outrasInformacoes"
+            data-cy="outrasInformacoes"
+            formControlName="outrasInformacoes"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.idNfseSubstituida" for="field_idNfseSubstituida"
+            >Id Nfse Substituida</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="idNfseSubstituida"
+            id="field_idNfseSubstituida"
+            data-cy="idNfseSubstituida"
+            formControlName="idNfseSubstituida"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.usuario" for="field_usuario">Usuario</label>
+          <input type="text" class="form-control" name="usuario" id="field_usuario" data-cy="usuario" formControlName="usuario" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.statusNfse" for="field_statusNfse">Status Nfse</label>
+          <input
+            type="text"
+            class="form-control"
+            name="statusNfse"
+            id="field_statusNfse"
+            data-cy="statusNfse"
+            formControlName="statusNfse"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.naturezaOperacao" for="field_naturezaOperacao">Natureza Operacao</label>
+          <input
+            type="number"
+            class="form-control"
+            name="naturezaOperacao"
+            id="field_naturezaOperacao"
+            data-cy="naturezaOperacao"
+            formControlName="naturezaOperacao"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.rps" for="field_rps">Rps</label>
+          <input type="text" class="form-control" name="rps" id="field_rps" data-cy="rps" formControlName="rps" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.inscricaoPrestador" for="field_inscricaoPrestador"
+            >Inscricao Prestador</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="inscricaoPrestador"
+            id="field_inscricaoPrestador"
+            data-cy="inscricaoPrestador"
+            formControlName="inscricaoPrestador"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.tipoDocDigitado" for="field_tipoDocDigitado">Tipo Doc Digitado</label>
+          <input
+            type="text"
+            class="form-control"
+            name="tipoDocDigitado"
+            id="field_tipoDocDigitado"
+            data-cy="tipoDocDigitado"
+            formControlName="tipoDocDigitado"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.statusAceite" for="field_statusAceite">Status Aceite</label>
+          <input
+            type="number"
+            class="form-control"
+            name="statusAceite"
+            id="field_statusAceite"
+            data-cy="statusAceite"
+            formControlName="statusAceite"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.exclusaoLogica" for="field_exclusaoLogica">Exclusao Logica</label>
+          <input
+            type="text"
+            class="form-control"
+            name="exclusaoLogica"
+            id="field_exclusaoLogica"
+            data-cy="exclusaoLogica"
+            formControlName="exclusaoLogica"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.ajustada" for="field_ajustada">Ajustada</label>
+          <input type="text" class="form-control" name="ajustada" id="field_ajustada" data-cy="ajustada" formControlName="ajustada" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.observacaoAjuste" for="field_observacaoAjuste">Observacao Ajuste</label>
+          <input
+            type="text"
+            class="form-control"
+            name="observacaoAjuste"
+            id="field_observacaoAjuste"
+            data-cy="observacaoAjuste"
+            formControlName="observacaoAjuste"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.aliquotaServico" for="field_aliquotaServico">Aliquota Servico</label>
+          <input
+            type="text"
+            class="form-control"
+            name="aliquotaServico"
+            id="field_aliquotaServico"
+            data-cy="aliquotaServico"
+            formControlName="aliquotaServico"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.art" for="field_art">Art</label>
+          <input type="text" class="form-control" name="art" id="field_art" data-cy="art" formControlName="art" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.baseCalculo" for="field_baseCalculo">Base Calculo</label>
+          <input
+            type="text"
+            class="form-control"
+            name="baseCalculo"
+            id="field_baseCalculo"
+            data-cy="baseCalculo"
+            formControlName="baseCalculo"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.codigoObra" for="field_codigoObra">Codigo Obra</label>
+          <input
+            type="text"
+            class="form-control"
+            name="codigoObra"
+            id="field_codigoObra"
+            data-cy="codigoObra"
+            formControlName="codigoObra"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.valorServico" for="field_valorServico">Valor Servico</label>
+          <input
+            type="text"
+            class="form-control"
+            name="valorServico"
+            id="field_valorServico"
+            data-cy="valorServico"
+            formControlName="valorServico"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.valorPis" for="field_valorPis">Valor Pis</label>
+          <input type="text" class="form-control" name="valorPis" id="field_valorPis" data-cy="valorPis" formControlName="valorPis" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.valorLiquidoNfse" for="field_valorLiquidoNfse">Valor Liquido Nfse</label>
+          <input
+            type="text"
+            class="form-control"
+            name="valorLiquidoNfse"
+            id="field_valorLiquidoNfse"
+            data-cy="valorLiquidoNfse"
+            formControlName="valorLiquidoNfse"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.valorIssRetido" for="field_valorIssRetido">Valor Iss Retido</label>
+          <input
+            type="text"
+            class="form-control"
+            name="valorIssRetido"
+            id="field_valorIssRetido"
+            data-cy="valorIssRetido"
+            formControlName="valorIssRetido"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.valorIssOutroMunicipio" for="field_valorIssOutroMunicipio"
+            >Valor Iss Outro Municipio</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="valorIssOutroMunicipio"
+            id="field_valorIssOutroMunicipio"
+            data-cy="valorIssOutroMunicipio"
+            formControlName="valorIssOutroMunicipio"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.valorIss" for="field_valorIss">Valor Iss</label>
+          <input type="text" class="form-control" name="valorIss" id="field_valorIss" data-cy="valorIss" formControlName="valorIss" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.valorIr" for="field_valorIr">Valor Ir</label>
+          <input type="text" class="form-control" name="valorIr" id="field_valorIr" data-cy="valorIr" formControlName="valorIr" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.valorInss" for="field_valorInss">Valor Inss</label>
+          <input type="text" class="form-control" name="valorInss" id="field_valorInss" data-cy="valorInss" formControlName="valorInss" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.valorDescontoCondicionado" for="field_valorDescontoCondicionado"
+            >Valor Desconto Condicionado</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="valorDescontoCondicionado"
+            id="field_valorDescontoCondicionado"
+            data-cy="valorDescontoCondicionado"
+            formControlName="valorDescontoCondicionado"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.valorDescontoIncondicionado" for="field_valorDescontoIncondicionado"
+            >Valor Desconto Incondicionado</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="valorDescontoIncondicionado"
+            id="field_valorDescontoIncondicionado"
+            data-cy="valorDescontoIncondicionado"
+            formControlName="valorDescontoIncondicionado"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.valorDeducoes" for="field_valorDeducoes">Valor Deducoes</label>
+          <input
+            type="text"
+            class="form-control"
+            name="valorDeducoes"
+            id="field_valorDeducoes"
+            data-cy="valorDeducoes"
+            formControlName="valorDeducoes"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.valorCsll" for="field_valorCsll">Valor Csll</label>
+          <input type="text" class="form-control" name="valorCsll" id="field_valorCsll" data-cy="valorCsll" formControlName="valorCsll" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.valorCredito" for="field_valorCredito">Valor Credito</label>
+          <input
+            type="text"
+            class="form-control"
+            name="valorCredito"
+            id="field_valorCredito"
+            data-cy="valorCredito"
+            formControlName="valorCredito"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.valorCofins" for="field_valorCofins">Valor Cofins</label>
+          <input
+            type="text"
+            class="form-control"
+            name="valorCofins"
+            id="field_valorCofins"
+            data-cy="valorCofins"
+            formControlName="valorCofins"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.outrasRetencoes" for="field_outrasRetencoes">Outras Retencoes</label>
+          <input
+            type="text"
+            class="form-control"
+            name="outrasRetencoes"
+            id="field_outrasRetencoes"
+            data-cy="outrasRetencoes"
+            formControlName="outrasRetencoes"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.issRetido" for="field_issRetido">Iss Retido</label>
+          <input type="text" class="form-control" name="issRetido" id="field_issRetido" data-cy="issRetido" formControlName="issRetido" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.discriminacao" for="field_discriminacao">Discriminacao</label>
+          <input
+            type="text"
+            class="form-control"
+            name="discriminacao"
+            id="field_discriminacao"
+            data-cy="discriminacao"
+            formControlName="discriminacao"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.municipioPrestacaoServico" for="field_municipioPrestacaoServico"
+            >Municipio Prestacao Servico</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="municipioPrestacaoServico"
+            id="field_municipioPrestacaoServico"
+            data-cy="municipioPrestacaoServico"
+            formControlName="municipioPrestacaoServico"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.paisPrestacaoServico" for="field_paisPrestacaoServico"
+            >Pais Prestacao Servico</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="paisPrestacaoServico"
+            id="field_paisPrestacaoServico"
+            data-cy="paisPrestacaoServico"
+            formControlName="paisPrestacaoServico"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.codRegimeEspecialTributacao" for="field_codRegimeEspecialTributacao"
+            >Cod Regime Especial Tributacao</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="codRegimeEspecialTributacao"
+            id="field_codRegimeEspecialTributacao"
+            data-cy="codRegimeEspecialTributacao"
+            formControlName="codRegimeEspecialTributacao"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.codigoTributacaoMunicipio" for="field_codigoTributacaoMunicipio"
+            >Codigo Tributacao Municipio</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="codigoTributacaoMunicipio"
+            id="field_codigoTributacaoMunicipio"
+            data-cy="codigoTributacaoMunicipio"
+            formControlName="codigoTributacaoMunicipio"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.itemListaServicoMunicipio" for="field_itemListaServicoMunicipio"
+            >Item Lista Servico Municipio</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="itemListaServicoMunicipio"
+            id="field_itemListaServicoMunicipio"
+            data-cy="itemListaServicoMunicipio"
+            formControlName="itemListaServicoMunicipio"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.cpfCnpjTomador" for="field_cpfCnpjTomador">Cpf Cnpj Tomador</label>
+          <input
+            type="text"
+            class="form-control"
+            name="cpfCnpjTomador"
+            id="field_cpfCnpjTomador"
+            data-cy="cpfCnpjTomador"
+            formControlName="cpfCnpjTomador"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.cpfCnpjPrestador" for="field_cpfCnpjPrestador">Cpf Cnpj Prestador</label>
+          <input
+            type="text"
+            class="form-control"
+            name="cpfCnpjPrestador"
+            id="field_cpfCnpjPrestador"
+            data-cy="cpfCnpjPrestador"
+            formControlName="cpfCnpjPrestador"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.inscricaoMunicipalTomador" for="field_inscricaoMunicipalTomador"
+            >Inscricao Municipal Tomador</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="inscricaoMunicipalTomador"
+            id="field_inscricaoMunicipalTomador"
+            data-cy="inscricaoMunicipalTomador"
+            formControlName="inscricaoMunicipalTomador"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.indicadorCpfCnpjTomador" for="field_indicadorCpfCnpjTomador"
+            >Indicador Cpf Cnpj Tomador</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="indicadorCpfCnpjTomador"
+            id="field_indicadorCpfCnpjTomador"
+            data-cy="indicadorCpfCnpjTomador"
+            formControlName="indicadorCpfCnpjTomador"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.indicadorCpfCnpjPrestador" for="field_indicadorCpfCnpjPrestador"
+            >Indicador Cpf Cnpj Prestador</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="indicadorCpfCnpjPrestador"
+            id="field_indicadorCpfCnpjPrestador"
+            data-cy="indicadorCpfCnpjPrestador"
+            formControlName="indicadorCpfCnpjPrestador"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.paisTomador" for="field_paisTomador">Pais Tomador</label>
+          <input
+            type="text"
+            class="form-control"
+            name="paisTomador"
+            id="field_paisTomador"
+            data-cy="paisTomador"
+            formControlName="paisTomador"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.paisPrestador" for="field_paisPrestador">Pais Prestador</label>
+          <input
+            type="text"
+            class="form-control"
+            name="paisPrestador"
+            id="field_paisPrestador"
+            data-cy="paisPrestador"
+            formControlName="paisPrestador"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.tipoTomador" for="field_tipoTomador">Tipo Tomador</label>
+          <input
+            type="number"
+            class="form-control"
+            name="tipoTomador"
+            id="field_tipoTomador"
+            data-cy="tipoTomador"
+            formControlName="tipoTomador"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.codCidadeTomadorIBGE" for="field_codCidadeTomadorIBGE"
+            >Cod Cidade Tomador IBGE</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="codCidadeTomadorIBGE"
+            id="field_codCidadeTomadorIBGE"
+            data-cy="codCidadeTomadorIBGE"
+            formControlName="codCidadeTomadorIBGE"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.codCidadePrestadorIBGE" for="field_codCidadePrestadorIBGE"
+            >Cod Cidade Prestador IBGE</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="codCidadePrestadorIBGE"
+            id="field_codCidadePrestadorIBGE"
+            data-cy="codCidadePrestadorIBGE"
+            formControlName="codCidadePrestadorIBGE"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.tipoPrestador" for="field_tipoPrestador">Tipo Prestador</label>
+          <input
+            type="number"
+            class="form-control"
+            name="tipoPrestador"
+            id="field_tipoPrestador"
+            data-cy="tipoPrestador"
+            formControlName="tipoPrestador"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.numeroEmpenho" for="field_numeroEmpenho">Numero Empenho</label>
+          <input
+            type="text"
+            class="form-control"
+            name="numeroEmpenho"
+            id="field_numeroEmpenho"
+            data-cy="numeroEmpenho"
+            formControlName="numeroEmpenho"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.tipoTributacaoPrestExterno" for="field_tipoTributacaoPrestExterno"
+            >Tipo Tributacao Prest Externo</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="tipoTributacaoPrestExterno"
+            id="field_tipoTributacaoPrestExterno"
+            data-cy="tipoTributacaoPrestExterno"
+            formControlName="tipoTributacaoPrestExterno"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.cepPrestador" for="field_cepPrestador">Cep Prestador</label>
+          <input
+            type="text"
+            class="form-control"
+            name="cepPrestador"
+            id="field_cepPrestador"
+            data-cy="cepPrestador"
+            formControlName="cepPrestador"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.cepTomador" for="field_cepTomador">Cep Tomador</label>
+          <input
+            type="text"
+            class="form-control"
+            name="cepTomador"
+            id="field_cepTomador"
+            data-cy="cepTomador"
+            formControlName="cepTomador"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.idTipoAnexoSimplesNacional" for="field_idTipoAnexoSimplesNacional"
+            >Id Tipo Anexo Simples Nacional</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="idTipoAnexoSimplesNacional"
+            id="field_idTipoAnexoSimplesNacional"
+            data-cy="idTipoAnexoSimplesNacional"
+            formControlName="idTipoAnexoSimplesNacional"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.idBloqueioNfse" for="field_idBloqueioNfse">Id Bloqueio Nfse</label>
+          <input
+            type="number"
+            class="form-control"
+            name="idBloqueioNfse"
+            id="field_idBloqueioNfse"
+            data-cy="idBloqueioNfse"
+            formControlName="idBloqueioNfse"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.idPgdasd2018Atividade" for="field_idPgdasd2018Atividade"
+            >Id Pgdasd 2018 Atividade</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="idPgdasd2018Atividade"
+            id="field_idPgdasd2018Atividade"
+            data-cy="idPgdasd2018Atividade"
+            formControlName="idPgdasd2018Atividade"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.nfse.inscricaoCpbs" for="field_inscricaoCpbs">Inscricao Cpbs</label>
+          <select
+            class="form-control"
+            id="field_inscricaoCpbs"
+            data-cy="inscricaoCpbs"
+            name="inscricaoCpbs"
+            formControlName="inscricaoCpbs"
+            [compareWith]="compareInscricaoCPBS"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="inscricaoCPBSOption" *ngFor="let inscricaoCPBSOption of inscricaoCPBSSharedCollection">
+              {{ inscricaoCPBSOption.inscricao }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancelar</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Salvar</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

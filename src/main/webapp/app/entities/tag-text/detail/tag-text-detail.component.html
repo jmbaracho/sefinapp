@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tagText">
+      <h2 data-cy="tagTextDetailsHeading"><span jhiTranslate="sefinaApp.tagText.detail.title">Tag Text</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">Código</span></dt>
+        <dd>
+          <span>{{ tagText.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.tagText.startPosition">Start Position</span></dt>
+        <dd>
+          <span>{{ tagText.startPosition }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.tagText.endPosition">End Position</span></dt>
+        <dd>
+          <span>{{ tagText.endPosition }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.tagText.nfse">Nfse</span></dt>
+        <dd>
+          <div *ngIf="tagText.nfse">
+            <a [routerLink]="['/nfse', tagText.nfse.id, 'view']">{{ tagText.nfse.idNfse }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.tagText.tag">Tag</span></dt>
+        <dd>
+          <div *ngIf="tagText.tag">
+            <a [routerLink]="['/tag', tagText.tag.id, 'view']">{{ tagText.tag.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Voltar</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tag-text', tagText.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="rawData">
+      <h2 data-cy="rawDataDetailsHeading"><span jhiTranslate="sefinaApp.rawData.detail.title">Raw Data</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">Código</span></dt>
+        <dd>
+          <span>{{ rawData.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.rawData.content">Content</span></dt>
+        <dd>
+          <span>{{ rawData.content }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.rawData.processed">Processed</span></dt>
+        <dd>
+          <span>{{ rawData.processed }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.rawData.createdAt">Created At</span></dt>
+        <dd>
+          <span>{{ rawData.createdAt | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.rawData.updatedAt">Updated At</span></dt>
+        <dd>
+          <span>{{ rawData.updatedAt | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.rawData.task">Task</span></dt>
+        <dd>
+          <div *ngIf="rawData.task">
+            <a [routerLink]="['/task', rawData.task.id, 'view']">{{ rawData.task.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Voltar</span>
+      </button>
+
+      <button type="button" [routerLink]="['/raw-data', rawData.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

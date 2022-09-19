@@ -1,0 +1,32 @@
+{
+  "sefinaApp": {
+    "agent": {
+      "home": {
+        "title": "Agents",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Agent",
+        "createOrEditLabel": "Criar ou editar Agent",
+        "notFound": "Nenhum Agent encontrado"
+      },
+      "created": "Um novo Agent foi criado com o identificador {{ param }}",
+      "updated": "Um Agent foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Agent foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Agent {{ id }}?"
+      },
+      "detail": {
+        "title": "Agent"
+      },
+      "id": "ID",
+      "name": "Name",
+      "maxBlocksPerTime": "Max Blocks Per Time",
+      "blockSize": "Block Size",
+      "intervalBetweenBlocks": "Interval Between Blocks",
+      "intervalBetweenTasks": "Interval Between Tasks",
+      "maxAttempts": "Max Attempts",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "schedule": "Schedule"
+    }
+  }
+}

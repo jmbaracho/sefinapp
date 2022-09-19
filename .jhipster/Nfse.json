@@ -1,0 +1,267 @@
+{
+  "applications": "*",
+  "changelogDate": "20220919175905",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "nfse",
+  "fields": [
+    {
+      "fieldName": "idNfse",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "competencia",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dataEmissao",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ip",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "optanteSimplesNacional",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "outrasInformacoes",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idNfseSubstituida",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "usuario",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "statusNfse",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "naturezaOperacao",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "rps",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "inscricaoPrestador",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tipoDocDigitado",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "statusAceite",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "exclusaoLogica",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ajustada",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "observacaoAjuste",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "aliquotaServico",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "art",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "baseCalculo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "codigoObra",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "valorServico",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "valorPis",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "valorLiquidoNfse",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "valorIssRetido",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "valorIssOutroMunicipio",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "valorIss",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "valorIr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "valorInss",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "valorDescontoCondicionado",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "valorDescontoIncondicionado",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "valorDeducoes",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "valorCsll",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "valorCredito",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "valorCofins",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "outrasRetencoes",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "issRetido",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "discriminacao",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "municipioPrestacaoServico",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "paisPrestacaoServico",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "codRegimeEspecialTributacao",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "codigoTributacaoMunicipio",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "itemListaServicoMunicipio",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cpfCnpjTomador",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cpfCnpjPrestador",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "inscricaoMunicipalTomador",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "indicadorCpfCnpjTomador",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "indicadorCpfCnpjPrestador",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "paisTomador",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "paisPrestador",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tipoTomador",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "codCidadeTomadorIBGE",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "codCidadePrestadorIBGE",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tipoPrestador",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "numeroEmpenho",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tipoTributacaoPrestExterno",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cepPrestador",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cepTomador",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idTipoAnexoSimplesNacional",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idBloqueioNfse",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "idPgdasd2018Atividade",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Nfse",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "inscricao",
+      "otherEntityName": "inscricaoCPBS",
+      "relationshipName": "inscricaoCpbs",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

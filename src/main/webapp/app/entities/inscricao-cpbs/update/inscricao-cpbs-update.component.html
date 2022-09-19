@@ -1,0 +1,208 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-inscricao-cpbs-heading"
+        data-cy="InscricaoCPBSCreateUpdateHeading"
+        jhiTranslate="sefinaApp.inscricaoCPBS.home.createOrEditLabel"
+      >
+        Criar ou editar Inscricao CPBS
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.inscricaoCPBS.inscricao" for="field_inscricao">Inscricao</label>
+          <input type="text" class="form-control" name="inscricao" id="field_inscricao" data-cy="inscricao" formControlName="inscricao" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.inscricaoCPBS.nome" for="field_nome">Nome</label>
+          <input type="text" class="form-control" name="nome" id="field_nome" data-cy="nome" formControlName="nome" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.inscricaoCPBS.nomeFantasia" for="field_nomeFantasia">Nome Fantasia</label>
+          <input
+            type="text"
+            class="form-control"
+            name="nomeFantasia"
+            id="field_nomeFantasia"
+            data-cy="nomeFantasia"
+            formControlName="nomeFantasia"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.inscricaoCPBS.numDocumento" for="field_numDocumento">Num Documento</label>
+          <input
+            type="text"
+            class="form-control"
+            name="numDocumento"
+            id="field_numDocumento"
+            data-cy="numDocumento"
+            formControlName="numDocumento"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.inscricaoCPBS.situacao" for="field_situacao">Situacao</label>
+          <select class="form-control" name="situacao" formControlName="situacao" id="field_situacao" data-cy="situacao">
+            <option [ngValue]="null">{{ 'sefinaApp.CPBSSituacaoEnum.null' | translate }}</option>
+            <option *ngFor="let cPBSSituacaoEnum of cPBSSituacaoEnumValues" [value]="cPBSSituacaoEnum">
+              {{ 'sefinaApp.CPBSSituacaoEnum.' + cPBSSituacaoEnum | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.inscricaoCPBS.optanteSimplesNacional" for="field_optanteSimplesNacional"
+            >Optante Simples Nacional</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="optanteSimplesNacional"
+            id="field_optanteSimplesNacional"
+            data-cy="optanteSimplesNacional"
+            formControlName="optanteSimplesNacional"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.inscricaoCPBS.codigoNaturezaJuridica" for="field_codigoNaturezaJuridica"
+            >Codigo Natureza Juridica</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="codigoNaturezaJuridica"
+            id="field_codigoNaturezaJuridica"
+            data-cy="codigoNaturezaJuridica"
+            formControlName="codigoNaturezaJuridica"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.inscricaoCPBS.descricaoNaturezaJuridica" for="field_descricaoNaturezaJuridica"
+            >Descricao Natureza Juridica</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="descricaoNaturezaJuridica"
+            id="field_descricaoNaturezaJuridica"
+            data-cy="descricaoNaturezaJuridica"
+            formControlName="descricaoNaturezaJuridica"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.inscricaoCPBS.tipoLogradouro" for="field_tipoLogradouro">Tipo Logradouro</label>
+          <input
+            type="text"
+            class="form-control"
+            name="tipoLogradouro"
+            id="field_tipoLogradouro"
+            data-cy="tipoLogradouro"
+            formControlName="tipoLogradouro"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.inscricaoCPBS.tituloLogradouro" for="field_tituloLogradouro"
+            >Titulo Logradouro</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="tituloLogradouro"
+            id="field_tituloLogradouro"
+            data-cy="tituloLogradouro"
+            formControlName="tituloLogradouro"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.inscricaoCPBS.logradouro" for="field_logradouro">Logradouro</label>
+          <input
+            type="text"
+            class="form-control"
+            name="logradouro"
+            id="field_logradouro"
+            data-cy="logradouro"
+            formControlName="logradouro"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.inscricaoCPBS.numero" for="field_numero">Numero</label>
+          <input type="text" class="form-control" name="numero" id="field_numero" data-cy="numero" formControlName="numero" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.inscricaoCPBS.complemento" for="field_complemento">Complemento</label>
+          <input
+            type="text"
+            class="form-control"
+            name="complemento"
+            id="field_complemento"
+            data-cy="complemento"
+            formControlName="complemento"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.inscricaoCPBS.nomeCidade" for="field_nomeCidade">Nome Cidade</label>
+          <input
+            type="text"
+            class="form-control"
+            name="nomeCidade"
+            id="field_nomeCidade"
+            data-cy="nomeCidade"
+            formControlName="nomeCidade"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.inscricaoCPBS.nomeBairro" for="field_nomeBairro">Nome Bairro</label>
+          <input
+            type="text"
+            class="form-control"
+            name="nomeBairro"
+            id="field_nomeBairro"
+            data-cy="nomeBairro"
+            formControlName="nomeBairro"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="sefinaApp.inscricaoCPBS.numeroCep" for="field_numeroCep">Numero Cep</label>
+          <input type="text" class="form-control" name="numeroCep" id="field_numeroCep" data-cy="numeroCep" formControlName="numeroCep" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancelar</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Salvar</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

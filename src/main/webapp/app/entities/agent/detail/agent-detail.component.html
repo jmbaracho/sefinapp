@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="agent">
+      <h2 data-cy="agentDetailsHeading"><span jhiTranslate="sefinaApp.agent.detail.title">Agent</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">Código</span></dt>
+        <dd>
+          <span>{{ agent.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.agent.name">Name</span></dt>
+        <dd>
+          <span>{{ agent.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.agent.maxBlocksPerTime">Max Blocks Per Time</span></dt>
+        <dd>
+          <span>{{ agent.maxBlocksPerTime }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.agent.blockSize">Block Size</span></dt>
+        <dd>
+          <span>{{ agent.blockSize }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.agent.intervalBetweenBlocks">Interval Between Blocks</span></dt>
+        <dd>
+          <span>{{ agent.intervalBetweenBlocks }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.agent.intervalBetweenTasks">Interval Between Tasks</span></dt>
+        <dd>
+          <span>{{ agent.intervalBetweenTasks }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.agent.maxAttempts">Max Attempts</span></dt>
+        <dd>
+          <span>{{ agent.maxAttempts }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.agent.createdAt">Created At</span></dt>
+        <dd>
+          <span>{{ agent.createdAt | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.agent.updatedAt">Updated At</span></dt>
+        <dd>
+          <span>{{ agent.updatedAt | formatMediumDate }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Voltar</span>
+      </button>
+
+      <button type="button" [routerLink]="['/agent', agent.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

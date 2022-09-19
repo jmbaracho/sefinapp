@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="hotelResultFacility">
+      <h2 data-cy="hotelResultFacilityDetailsHeading">
+        <span jhiTranslate="sefinaApp.hotelResultFacility.detail.title">Hotel Result Facility</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">Código</span></dt>
+        <dd>
+          <span>{{ hotelResultFacility.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.hotelResultFacility.createdAt">Created At</span></dt>
+        <dd>
+          <span>{{ hotelResultFacility.createdAt | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.hotelResultFacility.updatedAt">Updated At</span></dt>
+        <dd>
+          <span>{{ hotelResultFacility.updatedAt | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.hotelResultFacility.hotelResult">Hotel Result</span></dt>
+        <dd>
+          <div *ngIf="hotelResultFacility.hotelResult">
+            <a [routerLink]="['/hotel-result', hotelResultFacility.hotelResult.id, 'view']">{{ hotelResultFacility.hotelResult.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.hotelResultFacility.facility">Facility</span></dt>
+        <dd>
+          <div *ngIf="hotelResultFacility.facility">
+            <a [routerLink]="['/facility', hotelResultFacility.facility.id, 'view']">{{ hotelResultFacility.facility.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Voltar</span>
+      </button>
+
+      <button type="button" [routerLink]="['/hotel-result-facility', hotelResultFacility.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

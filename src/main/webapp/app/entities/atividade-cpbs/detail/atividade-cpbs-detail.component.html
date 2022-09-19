@@ -1,0 +1,70 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="atividadeCPBS">
+      <h2 data-cy="atividadeCPBSDetailsHeading"><span jhiTranslate="sefinaApp.atividadeCPBS.detail.title">Atividade CPBS</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">Código</span></dt>
+        <dd>
+          <span>{{ atividadeCPBS.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.atividadeCPBS.idAtividadeCpbs">Id Atividade Cpbs</span></dt>
+        <dd>
+          <span>{{ atividadeCPBS.idAtividadeCpbs }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.atividadeCPBS.cnae">Cnae</span></dt>
+        <dd>
+          <span>{{ atividadeCPBS.cnae }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.atividadeCPBS.descricaoCnae">Descricao Cnae</span></dt>
+        <dd>
+          <span>{{ atividadeCPBS.descricaoCnae }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.atividadeCPBS.principal">Principal</span></dt>
+        <dd>
+          <span>{{ atividadeCPBS.principal }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.atividadeCPBS.idSegmentoIss">Id Segmento Iss</span></dt>
+        <dd>
+          <span>{{ atividadeCPBS.idSegmentoIss }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.atividadeCPBS.descricaoSegmento">Descricao Segmento</span></dt>
+        <dd>
+          <span>{{ atividadeCPBS.descricaoSegmento }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.atividadeCPBS.idListaSerCpbs">Id Lista Ser Cpbs</span></dt>
+        <dd>
+          <span>{{ atividadeCPBS.idListaSerCpbs }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.atividadeCPBS.codigoListaSerCpbs">Codigo Lista Ser Cpbs</span></dt>
+        <dd>
+          <span>{{ atividadeCPBS.codigoListaSerCpbs }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.atividadeCPBS.descricaoListaSerCpbs">Descricao Lista Ser Cpbs</span></dt>
+        <dd>
+          <span>{{ atividadeCPBS.descricaoListaSerCpbs }}</span>
+        </dd>
+        <dt><span jhiTranslate="sefinaApp.atividadeCPBS.inscricaoCpbs">Inscricao Cpbs</span></dt>
+        <dd>
+          <div *ngIf="atividadeCPBS.inscricaoCpbs">
+            <a [routerLink]="['/inscricao-cpbs', atividadeCPBS.inscricaoCpbs.id, 'view']">{{ atividadeCPBS.inscricaoCpbs.inscricao }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Voltar</span>
+      </button>
+
+      <button type="button" [routerLink]="['/atividade-cpbs', atividadeCPBS.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

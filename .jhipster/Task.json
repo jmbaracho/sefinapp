@@ -1,0 +1,51 @@
+{
+  "applications": "*",
+  "changelogDate": "20220919175859",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "task",
+  "fields": [
+    {
+      "fieldName": "source",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "attemptCount",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "targetDateInterval",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "updatedAt",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Task",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "id",
+      "otherEntityName": "taskStatus",
+      "otherEntityRelationshipName": "task",
+      "relationshipName": "status",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "id",
+      "otherEntityName": "scheduleExecution",
+      "otherEntityRelationshipName": "task",
+      "relationshipName": "scheduleExecution",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

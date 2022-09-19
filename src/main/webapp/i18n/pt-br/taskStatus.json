@@ -1,0 +1,27 @@
+{
+  "sefinaApp": {
+    "taskStatus": {
+      "home": {
+        "title": "Task Statuses",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Task Status",
+        "createOrEditLabel": "Criar ou editar Task Status",
+        "notFound": "Nenhum Task Status encontrado"
+      },
+      "created": "Um novo Task Status foi criado com o identificador {{ param }}",
+      "updated": "Um Task Status foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Task Status foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Task Status {{ id }}?"
+      },
+      "detail": {
+        "title": "Task Status"
+      },
+      "id": "ID",
+      "name": "Name",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "task": "Task"
+    }
+  }
+}
